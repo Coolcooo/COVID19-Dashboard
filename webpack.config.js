@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {
-  CleanWebpackPlugin
+  CleanWebpackPlugin,
 } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -22,7 +22,7 @@ module.exports = {
     },
     {
       test: /\.(js)$/,
-      use: ['babel-loader', ],
+      use: ['babel-loader'],
     },
     {
       test: /\.(svg|png|jpe?g|gif)$/i,
@@ -39,7 +39,7 @@ module.exports = {
           bypassOnDebug: true,
           mozjpeg: {
             progressive: true,
-            quality: 75
+            quality: 75,
           },
           // optipng.enabled: false will disable optipng
           optipng: {
@@ -47,15 +47,15 @@ module.exports = {
           },
           pngquant: {
             quality: [0.65, 0.90],
-            speed: 4
+            speed: 4,
           },
           gifsicle: {
             interlaced: false,
-            optimizationLevel: 1
+            optimizationLevel: 1,
           },
           // the webp option will enable WEBP
           webp: {
-            quality: 75
+            quality: 75,
           },
         },
       }],
@@ -64,9 +64,9 @@ module.exports = {
       use: [{
         loader: 'file-loader',
         options: {
-          outputPath: 'fonts'
-        }
-      }]
+          outputPath: 'fonts',
+        },
+      }],
     },
     ],
   },
@@ -90,9 +90,9 @@ module.exports = {
         // {from: './src/static', to: './'},
         {
           from: './src/assets/img',
-          to: './img/'
+          to: './img/',
         },
-      ]
+      ],
     }),
     new CleanWebpackPlugin(),
     // new UglifyJSPlugin(),
