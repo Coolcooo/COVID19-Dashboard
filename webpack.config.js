@@ -26,7 +26,6 @@ module.exports = {
     },
     {
       test: /\.(svg|png|jpe?g|gif)$/i,
-      // type: 'asset/resource',
       use: [{
         loader: 'file-loader',
         options: {
@@ -41,7 +40,6 @@ module.exports = {
             progressive: true,
             quality: 75,
           },
-          // optipng.enabled: false will disable optipng
           optipng: {
             enabled: false,
           },
@@ -53,7 +51,6 @@ module.exports = {
             interlaced: false,
             optimizationLevel: 1,
           },
-          // the webp option will enable WEBP
           webp: {
             quality: 75,
           },
@@ -71,11 +68,6 @@ module.exports = {
     ],
   },
   devtool: 'source-map',
-  // optimization: {
-  //     splitChunks: {
-  //         chunck: 'all'
-  //     }
-  // },
   devServer: {
     port: 4200,
     overlay: true,
@@ -87,7 +79,6 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        // {from: './src/static', to: './'},
         {
           from: './src/assets/img',
           to: './img/',
@@ -95,6 +86,5 @@ module.exports = {
       ],
     }),
     new CleanWebpackPlugin(),
-    // new UglifyJSPlugin(),
   ],
 };
