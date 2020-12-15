@@ -1,0 +1,26 @@
+используется в основе:
+babel
+eslint air-bnb style
+normalize.css
+bootstrap
+
+установить node и npm
+клонировать репозиторий с вебпаком в свою ветку.
+в терминале прописать npm install
+точка входа(импорт всех модулей указывать тут): './src/app.js'
+имейджи сохранять './src/assets/img', но коде прописывать путь как './img/'
+тут должен лежать index.html  './src/index.html'
+
+
+запуск сборкри:
+"build": "webpack --mode production --progress --colors" 			продакшн 
+"build:dev": "webpack --mode development --progress --colors" 		просто дев    
+"watch": "webpack --mode development --watch --progress --colors" 		наблюдение за изменениями файлов и рекомпиляция    
+"dev": "webpack-dev-server --mode development --open --progress --colors"		 сборка дев с лайвсервером   
+"lint": "eslint ./src"   сборка с фильтром линта    
+"lint:fix": "eslint ./src --fix"  сборка с автофиксом проблем линта
+
+как в основном юзать: 
+для разработки использую npm run dev
+для финального билда продакшн np, run built
+остальное up to you;
