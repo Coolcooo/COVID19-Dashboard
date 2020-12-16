@@ -51,6 +51,7 @@
     "-": "0.0.1",
     "D": "^1.0.0",
     "bootstrap": "^4.5.3",
+    "chart.js": "^2.9.4",
     "copy-webpack-plugin": "^6.3.2",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
