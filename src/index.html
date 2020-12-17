@@ -6,11 +6,23 @@
   <title>Document</title>
 </head>
 <body>
-  <style>
-    body {
-     background-image: url(./img/corona.jpg);
-     background-color: #c7b39b;
-    }
-   </style>
+<div class="map-wrapper">
+  <label for="map__setting">Map setting</label>
+  <select name="" id="map__setting">
+    <option value="totalDeaths">Total deaths</option>
+    <option value="totalConfirmed">Total confirmed</option>
+    <option value="totalRecovered">Total revived</option>
+    <option value="newDeaths">New deaths</option>
+    <option value="newConfirmed">New confirmed</option>
+    <option value="newRecovered">New revived</option>
+    <option value="newDeathsPer100">New deaths per 100000</option>
+    <option value="newConfirmedPer100">New confirmed per 100000</option>
+    <option value="newRecoveredPer100">New revived per 100000</option>
+    <option value="totalDeathsPer100">Total deaths per 100000</option>
+    <option value="totalConfirmedPer100">Total confirmed per 100000</option>
+    <option value="totalRecoveredPer100">Total revived per 100000</option>
+  </select>
+  <div id="map"></div>
+</div>
 </body>
 </html>
