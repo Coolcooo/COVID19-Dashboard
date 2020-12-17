@@ -1,30 +1,56 @@
 import Chart from 'chart.js';
-import { data } from 'jquery';
 import api from './api.helper';
-import './data.helper';
-import dataArray from './data.helper';
-
-
+import dataArray from './dateChart.helper';
+import {
+  dataStorage,
+  chartConfig,
+} from './dataStorage.helper';
 
 const ctx = document.getElementById('myChart').getContext('2d');
-const chart = new Chart(ctx, {
-  // The type of chart we want to create
+export const myChart = new Chart(ctx, {
   type: 'line',
-
-  // The data for our dataset
   data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [{
-      label: 'My First dataset',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }],
+    labels: [].fill.call({
+      length: 260,
+    }, 4),
+    datasets: chartConfig,
   },
-
-  // Configuration options go here
-  options: {},
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+        },
+      }],
+    },
+  },
 });
-chart.update();
-api('world');
+
+export function chartData(type) {
+  const color = `${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 1`;
+  chartConfig.push({
+    label: `${type}`,
+    data: dataStorage.[`${type}`],
+    backgroundColor: [
+      `rgba(${color})`,
+    ],
+    borderColor: [
+      `rgba(${color})`,
+    ],
+    borderWidth: 3,
+    fill: false,
+    // chartArea: {
+    //   backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    // },
+  });
+  // console.log(chartConfig);
+  // console.log(dataStorage);
+}
+
 dataArray();
+api('world');
+// console.log(dataStorage.TotalConfirmed);
+
+// dataStorage.NewConfirmed.sort((a, b) => a.NewConfirmed < b.NewConfirmed);
+// console.log(dataStorage.TotalConfirmed);
+myChart.update();
