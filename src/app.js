@@ -1,3 +1,3 @@
 import generateMap from './map/map';
 
-generateMap();
+generateMap('body');
