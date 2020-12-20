@@ -43,6 +43,7 @@ export function chartData(type) {
   });
 }
 
+
 export function setChart(method = 'total', dataToShow = ['Confirmed', 'Active'], countryName = 'Russia', countryPopulationMultiply = 1) {
   api(method, dataToShow, countryName, countryPopulationMultiply);
   myChart.update();

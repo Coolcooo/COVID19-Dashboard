@@ -87,6 +87,13 @@ export function createVectorLayer(map, json, style, info) {
 
   function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
+    document.querySelectorAll('.table-cell').forEach((el) => {
+      if (e.target.feature.properties.name_sort !== el.id) {
+        el.style.display = 'display: none';
+      } else {
+        el.style.display = 'display: block';
+      }
+    });
   }
 
   function onEachFeature(feature, layer) {
@@ -111,7 +118,6 @@ export function createMapLayer(map) {
     id: 'mapbox/dark-v10',
     tileSize: 512,
     zoomOffset: -1,
-
   })
     .addTo(map);
 }

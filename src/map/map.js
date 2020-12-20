@@ -28,7 +28,6 @@ export default function generateMap(containerSelector) {
     const changeData = () => {
       map.removeLayer(geojson);
       geojson = createVectorLayer(map, json, style(settings.value, json), info);
-
       legend.update();
       info.update();
     };
