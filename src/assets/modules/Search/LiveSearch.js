@@ -61,4 +61,18 @@ document.querySelector('.input').oninput = function () {
       elem.classList.remove('hide');
     });
   }
+  const containerItems2 = document.querySelectorAll('.table-cell');
+  if (inputValue !== '') {
+    containerItems2.forEach((elem) => {
+      if (elem.id.toLowerCase().search(inputValue) && elem.id.search(inputValue) == -1) {
+        elem.classList.add('hide');
+      } else {
+        elem.classList.remove('.hide');
+      }
+    });
+  } else {
+    containerItems2.forEach((elem) => {
+      elem.classList.remove('hide');
+    });
+  }
 };
