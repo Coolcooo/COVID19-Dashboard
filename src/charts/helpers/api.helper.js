@@ -27,7 +27,6 @@ export default async function api(method = 'world', dataToShow = ['TotalConfirme
         characters.forEach((character) => {
           characterData.push(character);
         });
-        // dataStorage.TotalConfirmed.sort((a, b) => a.TotalConfirmed - b.TotalConfirmed);
         return characterData;
       })
       .then((characterData) => characterData.sort((a, b) => a.TotalConfirmed - b.TotalConfirmed))
@@ -45,12 +44,6 @@ export default async function api(method = 'world', dataToShow = ['TotalConfirme
           chartData(data);
           myChart.update();
         });
-
-        // chartData('TotalConfirmed');
-        // chartData('NewDeaths');
-        // chartData('TotalDeaths');
-        // chartData('NewRecovered');
-        // chartData('TotalRecovered');
       });
   } else if (method === 'total') {
     fetch(getDataLink, requestOptions)
@@ -61,7 +54,7 @@ export default async function api(method = 'world', dataToShow = ['TotalConfirme
         characters.forEach((character) => {
           characterData.push(character);
         });
-        // dataStorage.TotalConfirmed.sort((a, b) => a.TotalConfirmed - b.TotalConfirmed);
+
         return characterData;
       })
       .then((characterData) => {
