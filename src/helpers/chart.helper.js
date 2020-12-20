@@ -38,10 +38,11 @@ export function chartData(type) {
     borderColor: [
       `rgba(${color})`,
     ],
-    borderWidth: 3,
+    borderWidth: 1,
     fill: false,
   });
 }
+
 
 export function setChart(method = 'total', dataToShow = ['Confirmed', 'Active'], countryName = 'Russia', countryPopulationMultiply = 1) {
   dataArray();
