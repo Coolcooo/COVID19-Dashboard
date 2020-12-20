@@ -4,8 +4,11 @@ import {
   createInfoTable, createLeafletCanvas, createLegend, createMapLayer, createVectorLayer,
 } from './helpers/getMap';
 import updateCOVID19InfoGeojson from './helpers/addInfo';
+import createHTMLMap from './view/createHTMLMap';
 
-export default function generateMap() {
+export default function generateMap(containerSelector) {
+  createHTMLMap(containerSelector);
+
   const settings = document.querySelector('#map__setting');
   const map = createLeafletCanvas();
   createMapLayer(map);
@@ -18,12 +21,14 @@ export default function generateMap() {
     info.addTo(map);
     legend.addTo(map);
 
-    const geojson = createVectorLayer(map, json, style(settings.value, json), info);
+    let geojson = createVectorLayer(map, json, style(settings.value, json), info);
     legend.update();
     info.update();
 
     const changeData = () => {
-      geojson.setStyle(style(settings.value, json));
+      map.removeLayer(geojson);
+      geojson = createVectorLayer(map, json, style(settings.value, json), info);
+
       legend.update();
       info.update();
     };
