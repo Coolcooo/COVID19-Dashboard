@@ -16,6 +16,24 @@ background-color: black;
   .hide {
     display: none;;
   }
+
+  .icon_full-screen{
+fill: #adadad;
+position:relative;
+cursor: pointer;
+  }
+  .icon_full-screen:hover{
+      transition: 0.3s;
+      fill: #2493f2;
+  }
+  .countries-list__icon_full-screen{
+    left: 1px;
+    top: 3px;
+  }
+  .countries-table__icon_full-screen{
+    left: 1px;
+    top: 3px;
+  }
 .button{
     outline: none;
     cursor: pointer;
@@ -73,13 +91,25 @@ user-select: none;
       border: solid 2.1px #404040;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items:flex-end;
     font-weight: bold;
     line-height: 16px;
       }
+      .countries-list_fool-screen {
+          position: absolute;
+          z-index: 10;
+          width: 100%;
+          height: 100%;
+          font-size: 20px;
+          align-items: center;
+      }
       .countries-list__switch {
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        user-select: none; 
         background-color: #27292D;
-          width: 250px;
+          width: 246px;
+          box-sizing: border-box;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -140,35 +170,47 @@ cursor: pointer;
   
   /* //_____________________Table______________________________// */
   .countries-table{
+      width: 250px;
     height: 502px;
-    /* position: absolute;
-    background-color: blueviolet;
-    z-index: 10; */
     background-color: #2D2F34;
-  /*#383B40         #27292D #1F2023 */
-
   border-radius: 1px;
   border: solid 2.1px #404040;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
 font-weight: normal;
 line-height: 16px;
     width: 250px;
   }
+  .countries-table_full-screen{
+      position: absolute;
+      z-index: 10;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+  }
+  .countries-table_full-screen>*{
+    align-items: center;
+    
+}
   .countries-table__switch{
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none; 
     background-color: #27292D;
-          /* width: 450px; */
+ width: 250px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-weight: bold;
   }
   .countries-table__container {
-      /* width: 350px; */
     max-height: 500px;
+    width: 100%;
     overflow-y: scroll;
   }
   .table-cell__country {
+    width: 100%;
     border-bottom: 1px solid #57585A;
     border-top: 1px solid #57585A;
     -moz-user-select: none;
@@ -180,13 +222,16 @@ user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none; 
+    
   }
   .table-cell__categories{
     display: flex;
+    
   }
   .table-cell__categories>*{
-    width: 150px;
+    width: 100%;
     height: 50px;
+    width: 83.3px;
     border-right: 1px solid #57585A;
     border-bottom: 1px solid #57585A;
     display: flex;
@@ -194,12 +239,15 @@ user-select: none;
   }
 .table-cell__categories_confirmed{
 color:rgb(200, 214, 5);
+width: 100%;
 }
 .table-cell__categories_deaths{
     color: rgb(230, 0, 0);
+    width: 100%;
 }
 .table-cell__categories_recovered {
     color:#70a800;
+    width: 100%;
 }
 
 
@@ -212,19 +260,17 @@ display: flex;
 
 }
 .input{
-height: 20px;
+height: 15px;
 outline: none;
 }
 .button_keyboard{
-    width: 50px;
+    width: 30px;
+    height: 21px;
     padding: 0;
     margin: 0;
 
 }
-.button_keyboard:hover{
-    transition: 0.2s;
-    background-color:#2493f2;  
-}
+
   .icon_keyboard{
 width: 25px;
 
