@@ -33,7 +33,7 @@ export default async function updateCOVID19InfoGeojson() {
           maxParameters.newDeathsMax = geojsonProperty.newDeaths;
         }
         if (geojsonProperty.newRecovered > maxParameters.newRecoveredMax) {
-          maxParameters.newCRecoveredMax = geojsonProperty.newRecovered;
+          maxParameters.newRecoveredMax = geojsonProperty.newRecovered;
         }
         if (geojsonProperty.totalConfirmed > maxParameters.totalConfirmedMax) {
           maxParameters.totalConfirmedMax = geojsonProperty.totalConfirmed;
