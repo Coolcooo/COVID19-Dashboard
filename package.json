@@ -7,6 +7,7 @@
     "-": "0.0.1",
     "D": "^1.0.0",
     "bootstrap": "^4.5.3",
+    "chart.js": "^2.9.4",
     "copy-webpack-plugin": "^6.3.2",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
@@ -14,7 +15,8 @@
     "jquery": "^3.5.1",
     "leaflet": "^1.7.1",
     "normalize.css": "^8.0.1",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "uglifyjs-webpack-plugin": "^2.2.0"
   },
   "description": "",
   "devDependencies": {
@@ -44,20 +46,6 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-hot-middleware": "^2.25.0"
   },
-  "dependencies": {
-    "-": "0.0.1",
-    "D": "^1.0.0",
-    "bootstrap": "^4.5.3",
-    "chart.js": "^2.9.4",
-    "copy-webpack-plugin": "^6.3.2",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-import": "^2.22.1",
-    "image-webpack-loader": "^7.0.1",
-    "jquery": "^3.5.1",
-    "normalize.css": "^8.0.1",
-    "popper.js": "^1.16.1",
-    "uglifyjs-webpack-plugin": "^2.2.0"
-  }
   "homepage": "https://github.com/Coolcooo/COVID19-Dashboard#readme",
   "keywords": [],
   "license": "ISC",
