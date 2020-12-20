@@ -6,13 +6,13 @@ import {
   chartConfig,
 } from './dataStorage.helper';
 
-const ctx = document.getElementById('myChart').getContext('2d');
+export const ctx = document.getElementById('myChart').getContext('2d');
 export const myChart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: [].fill.call({
       length: 260,
-    }, Date.now()),
+    }, 1),
     datasets: chartConfig,
   },
   options: {
@@ -31,7 +31,7 @@ export function chartData(type) {
   const color = `${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 1`;
   chartConfig.push({
     label: `${type.replace(/([A-Z])/g, ' $1').trim()}`,
-    data: dataStorage.[`${type}`],
+    data: dataStorage[`${type}`],
     backgroundColor: [
       `rgba(${color})`,
     ],
@@ -45,7 +45,8 @@ export function chartData(type) {
 
 
 export function setChart(method = 'total', dataToShow = ['Confirmed', 'Active'], countryName = 'Russia', countryPopulationMultiply = 1) {
-  dataArray();
   api(method, dataToShow, countryName, countryPopulationMultiply);
   myChart.update();
 }
+
+setChart();
