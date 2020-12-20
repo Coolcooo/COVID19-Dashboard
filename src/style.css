@@ -26,6 +26,7 @@ cursor: pointer;
       transition: 0.3s;
       fill: #2493f2;
   }
+
   .countries-list__icon_full-screen{
     left: 1px;
     top: 3px;
@@ -34,6 +35,7 @@ cursor: pointer;
     left: 1px;
     top: 3px;
   }
+
 .button{
     outline: none;
     cursor: pointer;
@@ -44,34 +46,30 @@ cursor: pointer;
     color:#adadad ;
     width: 25px;
     height: 25px;
-    
 }
 .button:hover{
     transition: 0.3s;
     color: #2493f2;
 }
+
   .global-cases {
-      width: 210px;
-      height: 80px;
-      background-color: #2D2F34;
-      /*#383B40         #27292D #1F2023 */
-      box-sizing: border-box;
-      border-radius: 1px;
-      border: solid 2.1px #404040;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
+    width: 210px;
+    height: 80px;
+    background-color: #2D2F34;
+    box-sizing: border-box;
+    border-radius: 1px;
+    border: solid 2.1px #404040;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     font-weight: bold;
     line-height: 16px;
     -moz-user-select: none;
--khtml-user-select: none;
-user-select: none; 
+    -khtml-user-select: none;
+    user-select: none; 
+    }
 
-    }
-    .global-cases__title{
-        
-    }
     .global-cases__total-number{
         color: rgb(230, 0, 0);
         font-size: 40px;
@@ -81,19 +79,15 @@ user-select: none;
     .countries-list {
         width: 250px;
         height: 502px;
-        /* position: absolute;
-        background-color: blueviolet;
-        z-index: 10; */
         background-color: #2D2F34;
-      /*#383B40         #27292D #1F2023 */
-      box-sizing: border-box;
-      border-radius: 1px;
-      border: solid 2.1px #404040;
-      display: flex;
-      flex-direction: column;
-      align-items:flex-end;
-    font-weight: bold;
-    line-height: 16px;
+        box-sizing: border-box;
+        border-radius: 1px;
+        border: solid 2.1px #404040;
+        display: flex;
+        flex-direction: column;
+        align-items:flex-end;
+        font-weight: bold;
+        line-height: 16px;
       }
       .countries-list_fool-screen {
           position: absolute;
@@ -103,13 +97,14 @@ user-select: none;
           font-size: 20px;
           align-items: center;
       }
+      
       .countries-list__switch {
         -moz-user-select: none;
         -khtml-user-select: none;
         user-select: none; 
         background-color: #27292D;
-          width: 246px;
-          box-sizing: border-box;
+        width: 246px;
+        box-sizing: border-box;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -117,51 +112,53 @@ user-select: none;
 
       .countries-list__container{
           max-height: 500px;
-          overflow-y: scroll;
-          
+          overflow-y: scroll; 
       }
+
       ::-webkit-scrollbar {
         height: 7px;
         width: 7px;
         background: #404040;
     }
     ::-webkit-scrollbar-thumb {
-        background: #5c5c5c;
-        
+        background: #5c5c5c; 
     }
     ::-webkit-scrollbar-thumb:hover {
         background:#adadad;
     }
 
     .countries-cell{
-font-weight: normal;
-border-bottom: 1px solid #57585A;
-padding: 3px 0 3px;
--moz-user-select: none;
--khtml-user-select: none;
-user-select: none; 
-cursor: pointer;
+        font-weight: normal;
+        border-bottom: 1px solid #57585A;
+        padding: 3px 0 3px;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        user-select: none; 
+        cursor: pointer;
     }
 
     .countries-cell:hover {
         transition: 0.3s;
-         background-color: #1F2023;
-         color: #2493f2;
+        background-color: #1F2023;
+        color: #2493f2;
       }
-  .flag-image {
-    width: 20%;
-    height: 10%;
-    padding: 0;
-  }
+
+    .flag-image {
+        width: 20%;
+        height: 10%;
+        padding: 0;
+    }
   
   .countries-cell__value_yellow{
-      color: rgb(200, 214, 5);
-      font-size: 20px;
+    color: rgb(200, 214, 5);
+    font-size: 20px;
   }
+
   .countries-cell__value_red{
     color: rgb(230, 0, 0);
     font-size: 20px;
 }
+
 .countries-cell__value_green{
     font-size: 20px;
     color:#70a800;
@@ -170,16 +167,16 @@ cursor: pointer;
   
   /* //_____________________Table______________________________// */
   .countries-table{
-      width: 250px;
+    width: 250px;
     height: 502px;
     background-color: #2D2F34;
-  border-radius: 1px;
-  border: solid 2.1px #404040;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-font-weight: normal;
-line-height: 16px;
+    border-radius: 1px;
+    border: solid 2.1px #404040;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-weight: normal;
+    line-height: 16px;
     width: 250px;
   }
   .countries-table_full-screen{
@@ -189,45 +186,48 @@ line-height: 16px;
       width: 100%;
       height: 100%;
   }
+
   .countries-table_full-screen>*{
     align-items: center;
-    
 }
+
   .countries-table__switch{
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none; 
     background-color: #27292D;
- width: 250px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: bold;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
   }
+
   .countries-table__container {
     max-height: 500px;
     width: 100%;
     overflow-y: scroll;
   }
+
   .table-cell__country {
     width: 100%;
     border-bottom: 1px solid #57585A;
     border-top: 1px solid #57585A;
     -moz-user-select: none;
--khtml-user-select: none;
-user-select: none; 
+    -khtml-user-select: none;
+    user-select: none; 
   }
 
   .table-cell>*{
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none; 
-    
   }
+
   .table-cell__categories{
     display: flex;
-    
   }
+
   .table-cell__categories>*{
     width: 100%;
     height: 50px;
@@ -237,43 +237,40 @@ user-select: none;
     display: flex;
     justify-content: start;
   }
+
 .table-cell__categories_confirmed{
 color:rgb(200, 214, 5);
 width: 100%;
 }
+
 .table-cell__categories_deaths{
     color: rgb(230, 0, 0);
     width: 100%;
 }
+
 .table-cell__categories_recovered {
     color:#70a800;
     width: 100%;
 }
 
-
-
-  /* scrollbar colore #404040 */
-  /* ::-webkit-scrollbar-thumb #5c5c5c */
 /* _______________________Search_______________________________ */
 .input-container{
-display: flex;
-
+    display: flex;
 }
+
 .input{
-height: 15px;
-outline: none;
+    height: 15px;
+    outline: none;
 }
 .button_keyboard{
     width: 30px;
     height: 21px;
     padding: 0;
     margin: 0;
-
 }
 
   .icon_keyboard{
-width: 25px;
-
+    width: 25px;
   }
   
 

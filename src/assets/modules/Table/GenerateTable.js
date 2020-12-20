@@ -1,4 +1,4 @@
-import { fetchData, currentCountry } from '../List/GenerateList';
+import { fetchData } from '../List/GenerateList';
 import { generateCurrentTable } from './GenerateTablePages';
 import { populationData } from '../List/data_population';
 
@@ -114,12 +114,6 @@ async function generateTable() {
   generateCurrentTable();
 }
 generateTable();
-
-// document.querySelectorAll('.table-cell').map()
-// Sort table by click on list
-// function qwerty() {
-//     if (currentCountry != document.querySelector(`${currentCountry`))
-// }
 
 export {
   generateCountriesTable, generateCurrentTable, generateCellTotalCases, tableCategories, dataSummary, currentTableFlag,
