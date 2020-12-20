@@ -12,7 +12,7 @@ export const myChart = new Chart(ctx, {
   data: {
     labels: [].fill.call({
       length: 260,
-    }, 4),
+    }, Date.now()),
     datasets: chartConfig,
   },
   options: {
@@ -21,6 +21,7 @@ export const myChart = new Chart(ctx, {
         ticks: {
           beginAtZero: true,
         },
+        // stacked: true,
       }],
     },
   },
@@ -29,7 +30,7 @@ export const myChart = new Chart(ctx, {
 export function chartData(type) {
   const color = `${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 1`;
   chartConfig.push({
-    label: `${type}`,
+    label: `${type.replace(/([A-Z])/g, ' $1').trim()}`,
     data: dataStorage.[`${type}`],
     backgroundColor: [
       `rgba(${color})`,
@@ -48,9 +49,5 @@ export function chartData(type) {
 }
 
 dataArray();
-api('world');
-// console.log(dataStorage.TotalConfirmed);
-
-// dataStorage.NewConfirmed.sort((a, b) => a.NewConfirmed < b.NewConfirmed);
-// console.log(dataStorage.TotalConfirmed);
+api('total', ['Confirmed', 'Active', 'Recovered', 'Deaths'], 'Russia');
 myChart.update();

@@ -5,6 +5,11 @@ export let dataStorage = {
   TotalDeaths: [],
   NewRecovered: [],
   TotalRecovered: [],
+  Confirmed: [],
+  Deaths: [],
+  Recovered: [],
+  Active: [],
+  Date: [],
 };
 
 export let chartConfig = [];
