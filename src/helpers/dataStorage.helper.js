@@ -1,4 +1,4 @@
-export let dataStorage = {
+export const dataStorage = {
   NewConfirmed: [],
   TotalConfirmed: [],
   NewDeaths: [],
@@ -12,4 +12,4 @@ export let dataStorage = {
   Date: [],
 };
 
-export let chartConfig = [];
+export const chartConfig = [];
