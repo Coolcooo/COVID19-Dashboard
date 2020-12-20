@@ -40,17 +40,9 @@ export function chartData(type) {
     ],
     borderWidth: 1,
     fill: false,
-    // chartArea: {
-    //   backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    // },
   });
-  // console.log(chartConfig);
-  // console.log(dataStorage);
 }
 
-dataArray();
-api('total', ['Confirmed', 'Active', 'Recovered', 'Deaths'], 'Russia');
-myChart.update();
 
 export function setChart(method = 'total', dataToShow = ['Confirmed', 'Active'], countryName = 'Russia', countryPopulationMultiply = 1) {
   dataArray();
