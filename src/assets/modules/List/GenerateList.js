@@ -224,7 +224,7 @@ const generateCellTotalConfirmedPer100thou = (data, param) => {
   template += `<img class="flag-image" id="ckickble" src="${currentLinkImage(data.Country)}" alt="fgg">`;
   template += `${data.Country} </br>`;
   if (param === 'TotalConfirmed' || param === 'NewConfirmed') {
-    template +=`<div class="countries-cell__value_yellow">${Math.floor((data[param] / currentPopulationValue(data.Country)) * 100000)}</div>`;
+    template += `<div class="countries-cell__value_yellow">${Math.floor((data[param] / currentPopulationValue(data.Country)) * 100000)}</div>`;
   } else if (param === 'TotalDeaths' || param === 'NewDeaths') {
     template += `<div class="countries-cell__value_red">${Math.floor((data[param] / currentPopulationValue(data.Country)) * 100000)}</div>`;
   } else if (param === 'TotalRecovered' || param === 'NewRecovered') {
@@ -272,12 +272,11 @@ function selectTableCurrentCountry(cell, data) {
         el.style = 'display: block';
       }
     });
-
   });
 }
 export {
-  generateGlobalCasesContainer,generateGlobalCases, generateCountriesList, generateCellCountry, generateCellTotalConfirmed,
-  generateCellTotalDeaths, generateCellTotalRecovered, generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered, 
-  generateCellTotalConfirmedPer100thou, fetchData, handlerFlagRight, handlerFlagLeft, currentPopulationValue, listCategories, 
+  generateGlobalCasesContainer, generateGlobalCases, generateCountriesList, generateCellCountry, generateCellTotalConfirmed,
+  generateCellTotalDeaths, generateCellTotalRecovered, generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered,
+  generateCellTotalConfirmedPer100thou, fetchData, handlerFlagRight, handlerFlagLeft, currentPopulationValue, listCategories,
   currentFlag, dataSummary, dataFlags, dataFlag, generateCountiesList, currentCountry,
 };

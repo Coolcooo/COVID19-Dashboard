@@ -1,9 +1,9 @@
 // Chart Full Screen ico
 const appendFullScreenIco = () => {
-    let template = '';
-    const fullScreenIco = document.createElement('div');
-    fullScreenIco.className = 'chart__icons-full-screen';
-template += `<div class="countries-list__icon_full-screen chart__icon_full-screen icon_full-screen"><svg version="1.1" id="Capa_1" 
+  let template = '';
+  const fullScreenIco = document.createElement('div');
+  fullScreenIco.className = 'chart__icons-full-screen';
+  template += `<div class="countries-list__icon_full-screen chart__icon_full-screen icon_full-screen"><svg version="1.1" id="Capa_1" 
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   width="15px" height="15px" viewBox="0 0 402.996 402.996" style="enable-background:new 0 0 402.996 402.996;"
   xml:space="preserve">
@@ -33,24 +33,24 @@ template += `<div class="countries-list__icon_full-screen chart__icon_full-scree
 <path d="M160,426.667H42.667V309.333c0-5.896-4.771-10.667-10.667-10.667H10.667C4.771,298.667,0,303.437,0,309.333v149.333
     c0,5.896,4.771,10.667,10.667,10.667H160c5.896,0,10.667-4.771,10.667-10.667v-21.333
     C170.667,431.438,165.896,426.667,160,426.667z"/></div>`;
-    fullScreenIco.innerHTML = template;
+  fullScreenIco.innerHTML = template;
   return fullScreenIco;
 };
 document.querySelector('.chart-container').appendChild(appendFullScreenIco());
 
 // add full screen List
 document.querySelector('.chart__icon_full-screen').addEventListener('click', () => {
-    document.querySelector('.chart-container').classList.add('chart-container_fool-screen');
-    document.getElementById('myChart').classList.add('myChart_fool-screen');
-    document.querySelector('.chart__icon_full-screen').classList.add('hide');
-    document.querySelector('.chart__exit-full-screen').classList.remove('hide');
+  document.querySelector('.chart-container').classList.add('chart-container_fool-screen');
+  document.getElementById('myChart').classList.add('myChart_fool-screen');
+  document.querySelector('.chart__icon_full-screen').classList.add('hide');
+  document.querySelector('.chart__exit-full-screen').classList.remove('hide');
 });
 // remove full screen List
 document.querySelector('.chart__exit-full-screen').addEventListener('click', () => {
-    document.querySelector('.chart-container').classList.remove('chart-container_fool-screen')
-    document.getElementById('myChart').classList.remove('myChart_fool-screen');
-    document.querySelector('.chart__icon_full-screen').classList.remove('hide');
-    document.querySelector('.chart__exit-full-screen').classList.add('hide');
+  document.querySelector('.chart-container').classList.remove('chart-container_fool-screen');
+  document.getElementById('myChart').classList.remove('myChart_fool-screen');
+  document.querySelector('.chart__icon_full-screen').classList.remove('hide');
+  document.querySelector('.chart__exit-full-screen').classList.add('hide');
 });
 
-export {appendFullScreenIco}
+export { appendFullScreenIco };

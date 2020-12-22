@@ -49,8 +49,6 @@ const generateCountriesTable = () => {
 // document.body.appendChild(generateCountriesTable());
 document.querySelector('.right-container').appendChild(generateCountriesTable());
 
-
-
 // add full screen Table
 document.querySelector('.countries-table__icon_full-screen').addEventListener('click', () => {
   document.querySelector('.countries-table').classList.add('countries-table_full-screen');
