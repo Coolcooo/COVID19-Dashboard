@@ -140,7 +140,7 @@ cursor: pointer;
     line-height: 16px;
     -moz-user-select: none;
     -khtml-user-select: none;
-    user-select: none; 
+    user-select: none;
     }
     @media (max-width: 499px) {
       .global-cases {
@@ -205,10 +205,14 @@ cursor: pointer;
       .countries-list_fool-screen>.countries-list__container{
         max-height: 90% !important;
       }
+<<<<<<< HEAD
+=======
+
+>>>>>>> c84edf51afb7e4432853da87c00200c74cb1de56
       .countries-list__switch {
         -moz-user-select: none;
         -khtml-user-select: none;
-        user-select: none; 
+        user-select: none;
         background-color: #27292D;
         width: 216.5px;
         box-sizing: border-box;
@@ -224,7 +228,7 @@ cursor: pointer;
 
       .countries-list__container{
           max-height: 500px;
-          overflow-y: scroll; 
+          overflow-y: scroll;
       }
 
       ::-webkit-scrollbar {
@@ -233,7 +237,7 @@ cursor: pointer;
         background: #404040;
     }
     ::-webkit-scrollbar-thumb {
-        background: #5c5c5c; 
+        background: #5c5c5c;
     }
     ::-webkit-scrollbar-thumb:hover {
         background:#adadad;
@@ -245,7 +249,7 @@ cursor: pointer;
         padding: 3px 0 3px;
         -moz-user-select: none;
         -khtml-user-select: none;
-        user-select: none; 
+        user-select: none;
         cursor: pointer;
     }
 
@@ -260,7 +264,7 @@ cursor: pointer;
         height: 10%;
         padding: 0;
     }
-  
+
   .countries-cell__value_yellow{
     color: rgb(200, 214, 5);
     font-size: 20px;
@@ -275,8 +279,8 @@ cursor: pointer;
     font-size: 20px;
     color:#70a800;
 }
-  
-  
+
+
   /* //_____________________Table______________________________// */
   .countries-table{
 
@@ -317,7 +321,7 @@ cursor: pointer;
   .countries-table__switch{
     -moz-user-select: none;
     -khtml-user-select: none;
-    user-select: none; 
+    user-select: none;
     background-color: #27292D;
     width: 250px;
     display: flex;
@@ -342,13 +346,13 @@ cursor: pointer;
     border-top: 1px solid #57585A;
     -moz-user-select: none;
     -khtml-user-select: none;
-    user-select: none; 
+    user-select: none;
   }
 
   .table-cell>*{
     -moz-user-select: none;
     -khtml-user-select: none;
-    user-select: none; 
+    user-select: none;
   }
 
   .table-cell__categories{
@@ -397,7 +401,8 @@ width: 100%;
   .icon_keyboard{
     width: 25px;
   }
-  
+
+
   /* _______________________Map_______________________________________ */
   
 
@@ -421,6 +426,7 @@ z-index: 10;
 .chartjs-size-monitor{
     width: 100%;
     height: 100%;
+
 }
 
 #myChart {

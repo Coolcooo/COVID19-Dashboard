@@ -5,6 +5,7 @@ import {
 } from './helpers/getMap';
 import updateCOVID19InfoGeojson from './helpers/addInfo';
 import createHTMLMap from './view/createHTMLMap';
+import { selectTableCurrentCountry } from '../assets/modules/List/GenerateList';
 
 export default function generateMap(containerSelector) {
   createHTMLMap(containerSelector);
@@ -22,6 +23,7 @@ export default function generateMap(containerSelector) {
     legend.addTo(map);
 
     let geojson = createVectorLayer(map, json, style(settings.value, json), info);
+    console.log(geojson._layers[35].feature.properties);
     legend.update();
     info.update();
 
@@ -33,7 +35,23 @@ export default function generateMap(containerSelector) {
     };
 
     changeData();
+    console.log(geojson._layers);
     settings.addEventListener('change', changeData);
+    setTimeout(() => {
+      const countries = document.querySelectorAll('.countries-cell');
+      countries.forEach(((cell) => {
+        let countryName = cell.textContent.split(' ');
+        countryName = countryName.slice(0, countryName.length - 1).join(' ').trim();
+        cell.addEventListener('click', () => {
+          const geojsonKeys = Object.keys(geojson._layers);
+          for (let i = 0; i < geojsonKeys.length; i += 1) {
+            if (countryName === geojson._layers[geojsonKeys[i]].feature.properties.name_sort) {
+              map.fitBounds(geojson._layers[geojsonKeys[i]].getBounds());
+            }
+          }
+        });
+      }));
+    }, 500);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
