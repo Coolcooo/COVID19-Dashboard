@@ -275,6 +275,7 @@ function selectTableCurrentCountry(cell, data) {
 
   });
 }
+
 export {
   generateGlobalCasesContainer,generateGlobalCases, generateCountriesList, generateCellCountry, generateCellTotalConfirmed,
   generateCellTotalDeaths, generateCellTotalRecovered, generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered, 

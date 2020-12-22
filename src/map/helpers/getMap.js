@@ -1,6 +1,7 @@
 import * as L from 'leaflet/dist/leaflet';
 import 'leaflet/dist/leaflet.css';
 import getColor from './stylesForCountries';
+import {selectTableCurrentCountry} from "../../assets/modules/List/GenerateList";
 
 export default async function getCOVID19Info() {
   return (await fetch('https://api.covid19api.com/summary', {
@@ -14,7 +15,7 @@ export const isStableBrowser = !L.Browser.ie && !L.Browser.opera && !L.Browser.e
 
 export function createLeafletCanvas() {
   return L.map('map', {
-    minZoom: 2,
+    minZoom: 1,
     maxBounds: [
       [-90, -180],
       [90, 180],
