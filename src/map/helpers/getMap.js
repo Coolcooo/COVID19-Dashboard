@@ -1,7 +1,10 @@
+
 import * as L from 'leaflet/dist/leaflet';
 import 'leaflet/dist/leaflet.css';
+import '../leafletFullscreen/Control.FullScreen.css';
+import '../leafletFullscreen/Control.FullScreen';
 import getColor from './stylesForCountries';
-import {selectTableCurrentCountry} from "../../assets/modules/List/GenerateList";
+import {selectTableCurrentCountry} from '../../assets/modules/List/GenerateList';
 
 export default async function getCOVID19Info() {
   return (await fetch('https://api.covid19api.com/summary', {
@@ -20,6 +23,10 @@ export function createLeafletCanvas() {
       [-90, -180],
       [90, 180],
     ],
+    fullscreenControl: true,
+    fullscreenControlOptions: {
+      position: 'topleft',
+    },
   })
     .setView([0, 0], 5);
 }
@@ -90,10 +97,8 @@ export function createVectorLayer(map, json, style, info) {
     map.fitBounds(e.target.getBounds());
     document.querySelectorAll('.table-cell').forEach((el) => {
       if (e.target.feature.properties.name_sort !== el.id) {
-        console.log('123');
         el.style.display = 'none';
       } else {
-        console.log('1234');
         el.style.display = 'block';
       }
     });
