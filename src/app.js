@@ -8,5 +8,6 @@ import {generateTitle} from './assets/modules/Additional_content/Title'
 import {generateFooter} from './assets/modules/Additional_content/footer'
 import './style.css';
 import generateMap from './map/map';
+import appendFullScreenIco from './charts/chartFullScreen'
 
 generateMap('.map-container');

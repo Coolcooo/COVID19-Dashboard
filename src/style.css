@@ -200,8 +200,11 @@ cursor: pointer;
           font-size: 20px;
           left: 0;
           align-items: center;
+          top: 0;
       }
-      
+      .countries-list_fool-screen>.countries-list__container{
+        max-height: 90% !important;
+      }
       .countries-list__switch {
         -moz-user-select: none;
         -khtml-user-select: none;
@@ -301,10 +304,14 @@ cursor: pointer;
       width: 100%;
       height: 100%;
       left: 0;
+      bottom: 0;
   }
 
   .countries-table_full-screen>*{
     align-items: center;
+}
+.countries-table_full-screen>.countries-table__container {
+  max-height: 90%;
 }
 
   .countries-table__switch{
@@ -397,10 +404,20 @@ width: 100%;
 
   /* _____________________Chart___________________________________ */
   .chart-container{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
 width: 479px;
 height: 172px;
 }
-
+.chart-container_fool-screen{
+left: 0;
+top: 0;
+position: absolute;
+width: 100%;
+height: 100%;
+z-index: 10;
+}
 .chartjs-size-monitor{
     width: 100%;
     height: 100%;
@@ -411,11 +428,23 @@ height: 172px;
   border-radius: 1px;
     border: solid 2.1px #404040;
     width: 479px ;
-    height: 172px !important;
+    height: 172px;
 }
-
-
-
+.myChart_fool-screen{
+  width: 100%!important;
+  height: 100%!important;
+  max-height: 99% !important;
+  max-width: 100% !important;
+  
+}
+.chart__icon_full-screen{
+  top: 19px;
+  left: -1px;
+}
+.chart__exit-full-screen{
+  top: 19px;
+  left: -1px;
+}
 
 /* _______________________last Date Container___________________ */
 .last-update-date__container {

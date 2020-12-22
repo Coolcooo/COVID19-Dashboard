@@ -9,7 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <title>Dashboard-COVID19-tables</title>
 </head>
-
+<style>
+  canvas {
+    height: 172px;
+  }
+</style>
 <body>
   <div class="wrapper">
     <div class="wrapper__title-container"></div>
@@ -18,7 +22,7 @@
         <div class="center-container">
           <div class="map-container"></div>
           <div class="chart-container">
-            <canvas id="myChart" style="font-size: 16px;"></canvas>
+            <canvas id="myChart" style="max-height: 172px;"></canvas>
           </div>
         </div>
         <div class="right-container"></div>
