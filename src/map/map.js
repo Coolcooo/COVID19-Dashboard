@@ -23,7 +23,6 @@ export default function generateMap(containerSelector) {
     legend.addTo(map);
 
     let geojson = createVectorLayer(map, json, style(settings.value, json), info);
-    console.log(geojson._layers[35].feature.properties);
     legend.update();
     info.update();
 
@@ -35,7 +34,6 @@ export default function generateMap(containerSelector) {
     };
 
     changeData();
-    console.log(geojson._layers);
     settings.addEventListener('change', changeData);
     setTimeout(() => {
       const countries = document.querySelectorAll('.countries-cell');

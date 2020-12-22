@@ -46,7 +46,6 @@ const generateCountriesTable = () => {
   countriesList.innerHTML = template;
   return countriesList;
 };
-// document.body.appendChild(generateCountriesTable());
 document.querySelector('.right-container').appendChild(generateCountriesTable());
 
 // add full screen Table

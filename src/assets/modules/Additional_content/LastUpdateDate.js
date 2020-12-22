@@ -1,5 +1,3 @@
-// import {generateGlobalCases, dataSummary} from '../List/GenerateList'
-
 // Last Date of update container
 const generateLastUpdateDate = () => {
   let template = '';
@@ -22,12 +20,3 @@ async function fetchData(URL) {
   const res = data.json();
   return res;
 }
-
-// Generate Total Cases
-async function generateLastUpdateDateValue() {
-  console.log('');
-  // document.querySelector('.last-update-date__value').innerHTML = `${dataSummary.Countries.Date}`;
-}
-generateLastUpdateDateValue();
-
-export { generateLastUpdateDate };
