@@ -42,7 +42,7 @@ export default function initKeyboard() {
       document.querySelectorAll('.button_keyboard').forEach((element) => {
         element.addEventListener('click', () => {
           this.open(input.value, (currentValue) => {
-            input.innerTe = currentValue;
+            input.value = currentValue;
           });
         });
       });
