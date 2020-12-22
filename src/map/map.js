@@ -7,7 +7,6 @@ import updateCOVID19InfoGeojson from './helpers/addInfo';
 import createHTMLMap from './view/createHTMLMap';
 import { selectTableCurrentCountry } from '../assets/modules/List/GenerateList';
 
-
 export default function generateMap(containerSelector) {
   createHTMLMap(containerSelector);
 
@@ -24,8 +23,6 @@ export default function generateMap(containerSelector) {
     legend.addTo(map);
 
     let geojson = createVectorLayer(map, json, style(settings.value, json), info);
-    console.log(geojson);
-    console.log(geojson._layers[41].feature.properties);
     legend.update();
     info.update();
 
