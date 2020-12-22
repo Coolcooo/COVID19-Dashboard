@@ -42,7 +42,7 @@ export default function initKeyboard() {
       document.querySelectorAll('.button_keyboard').forEach((element) => {
         element.addEventListener('click', () => {
           this.open(input.value, (currentValue) => {
-            input.innerTe = currentValue;
+            input.value = currentValue;
           });
         });
       });
@@ -78,7 +78,7 @@ export default function initKeyboard() {
 
       const focusKey = document.querySelector('.input');
       let cursorPos = focusKey.selectionStart;
-      document.querySelector('.button_keyboard').addEventListener('click', () => {
+      document.querySelector('.input').addEventListener('click', () => {
         focusKey.focus();
       });
       keyLayoutEN.forEach((key) => {
