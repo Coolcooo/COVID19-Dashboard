@@ -3,15 +3,13 @@ import {
   generateCellTotalRecovered, generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered,
   generateCellTotalConfirmedPer100thou, listCategories, currentFlag, dataSummary, dataFlag,
 } from './GenerateList';
-
-import { myChart, setChart, clearChart } from '../../../charts/helpers/chart.helper';
-import { chartConfig } from '../../../charts/helpers/dataStorage.helper';
+import { setChart } from '../../../charts/helpers/chart.helper';
 
 function templeteRenderCells(data, param, func) {
   if (currentFlag <= 6) {
     data.sort((el1, el2) => el2[param] - el1[param]).map((el) => document.querySelector('.countries-list__container').appendChild(func(el, param)));
   } else if (currentFlag > 6) {
-    data.sort((el1, el2) => el2[param] / currentPopulationValue(el2.Country) * 100000 - el1[param] / currentPopulationValue(el1.Country) * 100000).map((el) => document.querySelector('.countries-list__container').appendChild(func(el, param)));
+    data.sort((el1, el2) => (el2[param] / currentPopulationValue(el2.Country)) * 100000 - (el1[param] / currentPopulationValue(el1.Country)) * 100000).map((el) => document.querySelector('.countries-list__container').appendChild(func(el, param)));
   }
   return data;
 }
