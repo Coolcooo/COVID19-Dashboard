@@ -7,6 +7,7 @@ import updateCOVID19InfoGeojson from './helpers/addInfo';
 import createHTMLMap from './view/createHTMLMap';
 import { selectTableCurrentCountry } from '../assets/modules/List/GenerateList';
 
+
 export default function generateMap(containerSelector) {
   createHTMLMap(containerSelector);
 

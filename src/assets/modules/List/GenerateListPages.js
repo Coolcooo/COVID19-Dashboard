@@ -3,13 +3,13 @@ import {
   generateCellTotalRecovered, generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered,
   generateCellTotalConfirmedPer100thou, listCategories, currentFlag, dataSummary, dataFlag,
 } from './GenerateList';
-import { setChart } from '../../../helpers/chart.helper';
-// import {changeData} from '../../../map/map'
+import { setChart } from '../../../charts/helpers/chart.helper';
+
 function templeteRenderCells(data, param, func) {
   if (currentFlag <= 6) {
     data.sort((el1, el2) => el2[param] - el1[param]).map((el) => document.querySelector('.countries-list__container').appendChild(func(el, param)));
   } else if (currentFlag > 6) {
-    data.sort((el1, el2) => el2[param] / currentPopulationValue(el2.Country) * 100000 - el1[param] / currentPopulationValue(el1.Country) * 100000).map((el) => document.querySelector('.countries-list__container').appendChild(func(el, param)));
+    data.sort((el1, el2) => (el2[param] / currentPopulationValue(el2.Country)) * 100000 - (el1[param] / currentPopulationValue(el1.Country)) * 100000).map((el) => document.querySelector('.countries-list__container').appendChild(func(el, param)));
   }
   return data;
 }
@@ -21,7 +21,6 @@ function generateCurrentList() {
   } else if (currentFlag === 1) {
     templeteRenderCells(dataSummary.Countries, 'TotalConfirmed', generateCellTotalConfirmed);
     setChart('world', ['TotalConfirmed']);
-    
   } else if (currentFlag === 2) {
     templeteRenderCells(dataSummary.Countries, 'TotalDeaths', generateCellTotalDeaths);
     setChart('world', ['TotalDeaths']);

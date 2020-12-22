@@ -6,13 +6,13 @@ import {
   chartConfig,
 } from './dataStorage.helper';
 
-const ctx = document.getElementById('myChart').getContext('2d');
+export const ctx = document.getElementById('myChart').getContext('2d');
 export const myChart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: [].fill.call({
       length: 260,
-    }, Date.now()),
+    }, 1),
     datasets: chartConfig,
   },
   options: {
@@ -40,20 +40,12 @@ export function chartData(type) {
     ],
     borderWidth: 1,
     fill: false,
-    // chartArea: {
-    //   backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    // },
   });
-  // console.log(chartConfig);
-  // console.log(dataStorage);
 }
 
-dataArray();
-api('total', ['Confirmed', 'Active', 'Recovered', 'Deaths'], 'Russia');
-myChart.update();
-
 export function setChart(method = 'total', dataToShow = ['Confirmed', 'Active'], countryName = 'Russia', countryPopulationMultiply = 1) {
-  dataArray();
   api(method, dataToShow, countryName, countryPopulationMultiply);
   myChart.update();
 }
+
+setChart();

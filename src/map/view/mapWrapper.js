@@ -7,19 +7,19 @@ export default function mapWrapper() {
     totalConfirmed: 'Total confirmed',
     totalDeaths: 'Total deaths',
     totalRecovered: 'Total recovered',
-    newDeaths: 'New deaths',
     newConfirmed: 'New confirmed',
+    newDeaths: 'New deaths',
     newRecovered: 'New recovered',
-    newDeathsPer100: 'New deaths per 100000',
-    newConfirmedPer100: 'New confirmed per 100000',
-    newRecoveredPer100: 'New recovered per 100000',
-    totalDeathsPer100: 'Total deaths per 100000',
-    totalConfirmedPer100: 'Total confirmed per 100000',
-    totalRecoveredPer100: 'Total recovered per 100000',
+    newConfirmedPer100: 'New confirmed/100000',
+    newDeathsPer100: 'New deaths/100000',
+    newRecoveredPer100: 'New recovered/100000',
+    totalConfirmedPer100: 'Total confirmed/100000',
+    totalDeathsPer100: 'Total deaths/100000',
+    totalRecoveredPer100: 'Total recovered/100000',
   };
 
   const wrapper = document.createElement('div');
-  const label = createLabel('Map settings', 'map__setting');
+  const label = createLabel('', 'map__setting');
 
   const optionsHTML = [];
   wrapper.className = 'map-wrapper';
