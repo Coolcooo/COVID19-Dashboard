@@ -205,10 +205,7 @@ cursor: pointer;
       .countries-list_fool-screen>.countries-list__container{
         max-height: 90% !important;
       }
-<<<<<<< HEAD
-=======
 
->>>>>>> c84edf51afb7e4432853da87c00200c74cb1de56
       .countries-list__switch {
         -moz-user-select: none;
         -khtml-user-select: none;
