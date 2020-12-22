@@ -89,9 +89,11 @@ export function createVectorLayer(map, json, style, info) {
     map.fitBounds(e.target.getBounds());
     document.querySelectorAll('.table-cell').forEach((el) => {
       if (e.target.feature.properties.name_sort !== el.id) {
-        el.style.display = 'display: none';
+        console.log('123');
+        el.style.display = 'none';
       } else {
-        el.style.display = 'display: block';
+        console.log('1234');
+        el.style.display = 'block';
       }
     });
   }

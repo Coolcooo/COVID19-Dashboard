@@ -7,7 +7,7 @@ function templeteRenderTableCells(data, param, func) {
   if (currentTableFlag < 2) {
     data.sort((el1, el2) => el2[param] - el1[param]).map((el) => document.querySelector('.countries-table__container').appendChild(func(el, param)));
   } else if (currentTableFlag >= 2) {
-    data.sort((el1, el2) => el2[param] / currentPopulationValue(el2.Country) * 100000 - el1[param] / currentPopulationValue(el1.Country) * 100000).map((el) => document.querySelector('.countries-table__container').appendChild(func(el, param)));
+    data.sort((el1, el2) => (el2[param] / currentPopulationValue(el2.Country)) * 100000 - (el1[param] / currentPopulationValue(el1.Country)) * 100000).map((el) => document.querySelector('.countries-table__container').appendChild(func(el, param)));
   }
 }
 

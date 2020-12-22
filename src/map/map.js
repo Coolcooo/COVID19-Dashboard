@@ -6,6 +6,7 @@ import {
 import updateCOVID19InfoGeojson from './helpers/addInfo';
 import createHTMLMap from './view/createHTMLMap';
 
+
 export default function generateMap(containerSelector) {
   createHTMLMap(containerSelector);
 
