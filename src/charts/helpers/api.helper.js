@@ -1,10 +1,8 @@
 import {
-  dataStorage,
-} from './dataStorage.helper';
-import {
   chartData,
   myChart,
 } from './chart.helper';
+import dateArray from './dateChart.helper';
 
 export default async function api(method = 'world', dataToShow = 'TotalConfirmed', countryName = 'Russia', countryPopulationMultiply = 1) {
   const defaultLink = 'https://api.covid19api.com/';
@@ -13,6 +11,8 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
     getDataLink = defaultLink + method;
   } else if (method === 'total') {
     getDataLink = `${defaultLink + method}/country/${countryName}`;
+  } else if (method === 'summary') {
+    getDataLink = `${defaultLink + method}`;
   }
   const requestOptions = {
     method: 'GET',
@@ -31,24 +31,11 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
       })
       .then((characterData) => characterData.sort((a, b) => a.TotalConfirmed - b.TotalConfirmed))
       .then((characterData) => {
-        // characterData.forEach((character) => {
-        //   dataStorage.NewConfirmed.push(character.NewConfirmed);
-        //   dataStorage.TotalConfirmed.push(character.TotalConfirmed);
-        //   dataStorage.NewDeaths.push(character.NewDeaths);
-        //   dataStorage.TotalDeaths.push(character.TotalDeaths);
-        //   dataStorage.NewRecovered.push(character.NewRecovered);
-        //   dataStorage.TotalRecovered.push(character.TotalRecovered);
-        //   myChart.update();
-        // });
         const data = [];
-        characterData.forEach(element => {
+        characterData.forEach((element) => {
           data.push(element[dataToShow]);
         });
-        chartData(data, dataToShow);
-        // dataToShow.forEach((data) => {
-        //   chartData(data);
-        //   myChart.update();
-        // });
+        chartData(data, dataToShow, dateArray(characterData));
       });
   } else if (method === 'total') {
     fetch(getDataLink, requestOptions)
@@ -63,23 +50,21 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
         return characterData;
       })
       .then((characterData) => {
-        // characterData.forEach((character) => {
-        //   dataStorage.Confirmed.push(character.Confirmed * countryPopulationMultiply);
-        //   dataStorage.Deaths.push(character.Deaths * countryPopulationMultiply);
-        //   dataStorage.Recovered.push(character.Recovered * countryPopulationMultiply);
-        //   dataStorage.Active.push(character.Active * countryPopulationMultiply);
-        //   myChart.update();
-
         const data = [];
-        characterData.forEach(element => {
+        characterData.forEach((element) => {
           data.push(element[dataToShow]);
         });
-        chartData(data, dataToShow);
-        // });
-        // dataToShow.forEach((data) => {
-        //   chartData(data);
-        //   myChart.update();
-        // });
+        chartData(data, dataToShow, dateArray(characterData));
+      });
+  } else if (method === 'summary') {
+    fetch(getDataLink, requestOptions)
+      .then((response) => response.json())
+      .then((apiData) => {
+        const data = [];
+        apiData.forEach((element) => {
+          data.push(element[dataToShow]);
+        });
+        chartData(data, dataToShow, dateArray(apiData));
       });
   }
 }

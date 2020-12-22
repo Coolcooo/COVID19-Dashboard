@@ -1,6 +1,6 @@
 import Chart from 'chart.js';
 import api from './api.helper';
-import dataArray from './dateChart.helper';
+
 import {
   dataStorage,
   chartConfig,
@@ -27,16 +27,16 @@ export const myChart = new Chart(ctx, {
   },
 });
 
-export function clearChart(label, dataset = chartConfig) {
-  console.log(chartConfig);
-  myChart.data.datasets.splice(0, 1);
-  myChart.update();
-}
+// export function clearChart(label, dataset = chartConfig) {
+//   console.log(chartConfig);
+//   myChart.data.datasets.splice(0, 1);
+//   myChart.update();
+// }
 
-export function chartData(charPoints, label) {
-  const color = `${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 1`;
+export function chartData(charPoints, labelsY, labelsX) {
+  const color = '255,255,255, 1';
   chartConfig[0] = {
-    label: `${label.replace(/([A-Z])/g, ' $1').trim()}`,
+    label: `${labelsY.replace(/([A-Z])/g, ' $1').trim()}`,
     data: charPoints,
     backgroundColor: [
       `rgba(${color})`,
@@ -44,9 +44,10 @@ export function chartData(charPoints, label) {
     borderColor: [
       `rgba(${color})`,
     ],
-    borderWidth: 1,
+    borderWidth: 5,
     fill: false,
   };
+  myChart.data.labels = labelsX;
   myChart.update();
 }
 
@@ -55,14 +56,4 @@ export function setChart(method = 'total', dataToShow = ['Confirmed', 'Active'],
   myChart.update();
 }
 
-// export function chartClear() {
-//   chartConfig = [];
-//   myChart.data.datasets.forEach(element => {
-//     element.removeData();
-//   });
-//   myChart.update();
-// }
-
 setChart('world', 'TotalConfirmed', 'Russia');
-// console.log(myChart.data.labels = []);
-// myChart.update();
