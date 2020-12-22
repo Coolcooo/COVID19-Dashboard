@@ -11,7 +11,7 @@ const generateGlobalCasesContainer = () => {
   globalCases.innerHTML = template;
   return globalCases;
 };
-document.body.appendChild(generateGlobalCasesContainer());
+document.querySelector('.left-container').appendChild(generateGlobalCasesContainer());
 
 // Generate Total Cases
 async function generateGlobalCases() {
@@ -31,7 +31,8 @@ const generateCountriesList = () => {
   template += '<button class="button switch__button_right">></button>';
   template += '</div>';
   template += '<div class="countries-list__container"></div>';
-  template += `<div class="countries-list__icon_full-screen icon_full-screen"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  template += `<div class="countries-list__icon_full-screen icon_full-screen"><svg version="1.1" id="Capa_1" 
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   width="15px" height="15px" viewBox="0 0 402.996 402.996" style="enable-background:new 0 0 402.996 402.996;"
   xml:space="preserve">
   <path d="M392.996,1.985H258.33c-5.523,0-10,4.477-10,10V31.01c0,5.523,4.477,10,10,10h78.046L224.955,152.431
@@ -47,7 +48,8 @@ const generateCountriesList = () => {
 		<path d="M164.588,222.97c-3.905-3.905-10.238-3.905-14.142,0L39.024,334.392v-78.047c0-5.523-4.477-10-10-10H10
 			c-5.523,0-10,4.477-10,10v134.666c0,5.523,4.477,10,10,10h134.666c5.523,0,10-4.477,10-10v-19.023c0-5.523-4.477-10-10-10H66.62
             l111.421-111.422c3.905-3.904,3.905-10.236,0-14.143L164.588,222.97z"/></div>`;
-  template += `<div class="countries-list__icon_full-screen icon_full-screen exit-full-screen hide"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px"
+  template += `<div class="countries-list__icon_full-screen icon_full-screen exit-full-screen hide"><svg version="1.1" id="Capa_1" 
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15px" height="15px"
     viewBox="0 0 469.333 469.333" style="enable-background:new 0 0 469.333 469.333;" xml:space="preserve">
     <path d="M160,0H10.667C4.771,0,0,4.771,0,10.667V160c0,5.896,4.771,10.667,10.667,10.667H32c5.896,0,10.667-4.771,10.667-10.667
     V42.667H160c5.896,0,10.667-4.771,10.667-10.667V10.667C170.667,4.771,165.896,0,160,0z"/>
@@ -62,7 +64,7 @@ const generateCountriesList = () => {
   countriesList.innerHTML = template;
   return countriesList;
 };
-document.body.appendChild(generateCountriesList());
+document.querySelector('.left-container').appendChild(generateCountriesList());
 
 // add full screen List
 document.querySelector('.countries-list__icon_full-screen').addEventListener('click', () => {
@@ -81,12 +83,10 @@ document.querySelector('.exit-full-screen').addEventListener('click', () => {
 document.body.querySelector('.switch__button_right').addEventListener('click', () => {
   handlerFlagRight();
   generateCountiesList();
-  console.log(currentFlag);
 });
 document.body.querySelector('.switch__button_left').addEventListener('click', () => {
   handlerFlagLeft();
   generateCountiesList();
-  console.log(currentFlag);
 });
 
 // _________________________________________________________________________________________________________________________//
@@ -109,11 +109,11 @@ generateCountiesList();
 
 // Link flag for cells
 function currentLinkImage(name) {
-  return populationData.filter((el) => el.name == name)[0].flag;
+  return populationData.filter((el) => el.name === name)[0].flag;
 }
 // Current population value
 function currentPopulationValue(name) {
-  return populationData.filter((el) => el.name == name)[0].population;
+  return populationData.filter((el) => el.name === name)[0].population;
 }
 
 // Cell Country for Countries List
@@ -223,13 +223,12 @@ const generateCellTotalConfirmedPer100thou = (data, param) => {
   selectTableCurrentCountry(cell, data);
   template += `<img class="flag-image" id="ckickble" src="${currentLinkImage(data.Country)}" alt="fgg">`;
   template += `${data.Country} </br>`;
-  console.log(param);
   if (param === 'TotalConfirmed' || param === 'NewConfirmed') {
-    template += `<div class="countries-cell__value_yellow">${Math.floor(data[param] / currentPopulationValue(data.Country) * 100000)}</div>`;
+    template +=`<div class="countries-cell__value_yellow">${Math.floor((data[param] / currentPopulationValue(data.Country)) * 100000)}</div>`;
   } else if (param === 'TotalDeaths' || param === 'NewDeaths') {
-    template += `<div class="countries-cell__value_red">${Math.floor(data[param] / currentPopulationValue(data.Country) * 100000)}</div>`;
+    template += `<div class="countries-cell__value_red">${Math.floor((data[param] / currentPopulationValue(data.Country)) * 100000)}</div>`;
   } else if (param === 'TotalRecovered' || param === 'NewRecovered') {
-    template += `<div class="countries-cell__value_green">${Math.floor(data[param] / currentPopulationValue(data.Country) * 100000)}</div>`;
+    template += `<div class="countries-cell__value_green">${Math.floor((data[param] / currentPopulationValue(data.Country)) * 100000)}</div>`;
   }
 
   cell.innerHTML = template;
@@ -261,11 +260,10 @@ function handlerFlagLeft() {
 // Clickble List
 document.querySelector('.countries-list__container').onclick = function (event) {
   const { target } = event; // где был клик?
-  console.log(target);
-  if (target.id != 'ckickble' && target.className != 'flag-image') return;
+  if (target.id !== 'ckickble' && target.className !== 'flag-image') return;
 };
 
-function selectTableCurrentCountry(cell, data) {
+export function selectTableCurrentCountry(cell, data) {
   cell.addEventListener('click', () => {
     document.querySelectorAll('.table-cell').forEach((el) => {
       if (el.id !== data.Country) {
@@ -274,18 +272,13 @@ function selectTableCurrentCountry(cell, data) {
         el.style = 'display: block';
       }
     });
-    // document.querySelectorAll('.leaflet-interactive').forEach((el) => {
-    //   if (el.properties.id !== data.CountryCode) {
 
-    //   } else {
-
-    //   }
-    // });
   });
 }
+
 export {
-  generateGlobalCasesContainer, generateCellCountry, generateCellTotalConfirmed, generateCellTotalDeaths, generateCellTotalRecovered,
-  generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered, generateCellTotalConfirmedPer100thou,
-  fetchData, handlerFlagRight, handlerFlagLeft, currentPopulationValue, listCategories, currentFlag, dataSummary, dataFlags, dataFlag,
-  generateCountiesList, currentCountry,
+  generateGlobalCasesContainer,generateGlobalCases, generateCountriesList, generateCellCountry, generateCellTotalConfirmed,
+  generateCellTotalDeaths, generateCellTotalRecovered, generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered,
+  generateCellTotalConfirmedPer100thou, fetchData, handlerFlagRight, handlerFlagLeft, currentPopulationValue, listCategories,
+  currentFlag, dataSummary, dataFlags, dataFlag, generateCountiesList, currentCountry,
 };

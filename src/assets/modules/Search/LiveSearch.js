@@ -3,7 +3,8 @@ const generateSearchInput = () => {
   const cell = document.createElement('div');
   cell.className = 'input-container';
   template += '<input class="input" placeholder="Search for Country" type="text">';
-  template += `<button  class="button button_keyboard icon_full-screen"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  template += `<button  class="button button_keyboard icon_full-screen"><svg version="1.1" id="Capa_1" 
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   width="30px" height="18px" viewBox="0 0 548.176 548.176" style="enable-background:new 0 0 548.176 548.176;"
   xml:space="preserve"><g>
   <path d="M537.468,120.342c-7.139-7.139-15.753-10.709-25.841-10.709H36.545c-10.088,0-18.699,3.571-25.837,10.709
@@ -41,16 +42,14 @@ const generateSearchInput = () => {
   cell.innerHTML = template;
   return cell;
 };
-document.body.appendChild(generateSearchInput());
-
+document.querySelector('.map-container').appendChild(generateSearchInput());
 // Live Search
 document.querySelector('.input').oninput = function () {
-  console.log('123');
   const inputValue = this.value.trim();
   const containerItems = document.querySelectorAll('.countries-cell');
   if (inputValue !== '') {
     containerItems.forEach((elem) => {
-      if (elem.innerText.toLowerCase().search(inputValue) && elem.innerText.search(inputValue) == -1) {
+      if (elem.innerText.toLowerCase().search(inputValue) && elem.innerText.search(inputValue) === -1) {
         elem.classList.add('hide');
       } else {
         elem.classList.remove('.hide');
@@ -64,7 +63,7 @@ document.querySelector('.input').oninput = function () {
   const containerItems2 = document.querySelectorAll('.table-cell');
   if (inputValue !== '') {
     containerItems2.forEach((elem) => {
-      if (elem.id.toLowerCase().search(inputValue) && elem.id.search(inputValue) == -1) {
+      if (elem.id.toLowerCase().search(inputValue) && elem.id.search(inputValue) === -1) {
         elem.classList.add('hide');
       } else {
         elem.classList.remove('.hide');
@@ -76,3 +75,5 @@ document.querySelector('.input').oninput = function () {
     });
   }
 };
+
+export { generateSearchInput };
