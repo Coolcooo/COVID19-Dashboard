@@ -274,6 +274,13 @@ function selectTableCurrentCountry(cell, data) {
         el.style = 'display: block';
       }
     });
+    // document.querySelectorAll('.leaflet-interactive').forEach((el) => {
+    //   if (el.properties.id !== data.CountryCode) {
+
+    //   } else {
+
+    //   }
+    // });
   });
 }
 

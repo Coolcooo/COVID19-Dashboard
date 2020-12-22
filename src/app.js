@@ -4,8 +4,7 @@ import { generateGlobalCasesContainer, generateCountriesList, generateCountiesLi
 import { generateCountriesTable } from './assets/modules/Table/GenerateTable';
 import { generateSearchInput } from './assets/modules/Search/LiveSearch';
 import './style.css';
-import initKeyboard from './keyboard/script';
+
 import generateMap from './map/map';
 
 generateMap('.map-container');
-initKeyboard();
