@@ -4,7 +4,6 @@
 
 .info {
     padding: 3px 4px;
-    font: 8px/5px Roboto;
     background: white;
     background: rgba(255,255,255,0.8);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -40,7 +39,7 @@
     font-size: 16px;
     line-height: 16px;
     color:#bdbdbd ;
-    font-weight: bold;   
+    font-weight: bold;
 }
 #map__setting {
     height: 20px;
@@ -118,8 +117,16 @@
       line-height: 24px;
       -moz-user-select: none;
       -khtml-user-select: none;
-      user-select: none; 
+      user-select: none;
   }
+.leaflet-touch .leaflet-bar a {
+    width: 28px !important;
+    height: 28px!important;
+    background-color: #4C4C4C;
+}
+.leaflet-bar a:hover {
+    background-color: #4C4C4C !important;
+}
   @media (max-width: 979px){
     .wrapper__title-container{
         width: 482px;

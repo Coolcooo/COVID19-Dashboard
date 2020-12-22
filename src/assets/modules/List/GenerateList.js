@@ -263,7 +263,7 @@ document.querySelector('.countries-list__container').onclick = function (event) 
   if (target.id !== 'ckickble' && target.className !== 'flag-image') return;
 };
 
-function selectTableCurrentCountry(cell, data) {
+export function selectTableCurrentCountry(cell, data) {
   cell.addEventListener('click', () => {
     document.querySelectorAll('.table-cell').forEach((el) => {
       if (el.id !== data.Country) {
@@ -278,7 +278,7 @@ function selectTableCurrentCountry(cell, data) {
 
 export {
   generateGlobalCasesContainer,generateGlobalCases, generateCountriesList, generateCellCountry, generateCellTotalConfirmed,
-  generateCellTotalDeaths, generateCellTotalRecovered, generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered, 
-  generateCellTotalConfirmedPer100thou, fetchData, handlerFlagRight, handlerFlagLeft, currentPopulationValue, listCategories, 
+  generateCellTotalDeaths, generateCellTotalRecovered, generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered,
+  generateCellTotalConfirmedPer100thou, fetchData, handlerFlagRight, handlerFlagLeft, currentPopulationValue, listCategories,
   currentFlag, dataSummary, dataFlags, dataFlag, generateCountiesList, currentCountry,
 };
