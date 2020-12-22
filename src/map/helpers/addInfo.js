@@ -1,8 +1,10 @@
 import geo from '../../assets/json/countries.json';
 import getCOVID19Info from './getMap';
 
+export const covid = getCOVID19Info();
+
 export default async function updateCOVID19InfoGeojson() {
-  const data = await getCOVID19Info();
+  const data = await covid;
   const json = geo;
   json.features.forEach((e) => {
     const geojsonProperty = e.properties;

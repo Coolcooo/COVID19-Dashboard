@@ -31,7 +31,7 @@ export function chartData(type) {
   const color = `${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 1`;
   chartConfig.push({
     label: `${type.replace(/([A-Z])/g, ' $1').trim()}`,
-    data: dataStorage.[`${type}`],
+    data: dataStorage[`${type}`],
     backgroundColor: [
       `rgba(${color})`,
     ],

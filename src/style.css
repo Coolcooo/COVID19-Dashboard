@@ -67,7 +67,7 @@ cursor: pointer;
     line-height: 16px;
     -moz-user-select: none;
     -khtml-user-select: none;
-    user-select: none; 
+    user-select: none;
     }
 
     .global-cases__total-number{
@@ -97,11 +97,11 @@ cursor: pointer;
           font-size: 20px;
           align-items: center;
       }
-      
+
       .countries-list__switch {
         -moz-user-select: none;
         -khtml-user-select: none;
-        user-select: none; 
+        user-select: none;
         background-color: #27292D;
         width: 246px;
         box-sizing: border-box;
@@ -112,7 +112,7 @@ cursor: pointer;
 
       .countries-list__container{
           max-height: 500px;
-          overflow-y: scroll; 
+          overflow-y: scroll;
       }
 
       ::-webkit-scrollbar {
@@ -121,7 +121,7 @@ cursor: pointer;
         background: #404040;
     }
     ::-webkit-scrollbar-thumb {
-        background: #5c5c5c; 
+        background: #5c5c5c;
     }
     ::-webkit-scrollbar-thumb:hover {
         background:#adadad;
@@ -133,7 +133,7 @@ cursor: pointer;
         padding: 3px 0 3px;
         -moz-user-select: none;
         -khtml-user-select: none;
-        user-select: none; 
+        user-select: none;
         cursor: pointer;
     }
 
@@ -148,7 +148,7 @@ cursor: pointer;
         height: 10%;
         padding: 0;
     }
-  
+
   .countries-cell__value_yellow{
     color: rgb(200, 214, 5);
     font-size: 20px;
@@ -163,8 +163,8 @@ cursor: pointer;
     font-size: 20px;
     color:#70a800;
 }
-  
-  
+
+
   /* //_____________________Table______________________________// */
   .countries-table{
     width: 250px;
@@ -194,7 +194,7 @@ cursor: pointer;
   .countries-table__switch{
     -moz-user-select: none;
     -khtml-user-select: none;
-    user-select: none; 
+    user-select: none;
     background-color: #27292D;
     width: 250px;
     display: flex;
@@ -215,13 +215,13 @@ cursor: pointer;
     border-top: 1px solid #57585A;
     -moz-user-select: none;
     -khtml-user-select: none;
-    user-select: none; 
+    user-select: none;
   }
 
   .table-cell>*{
     -moz-user-select: none;
     -khtml-user-select: none;
-    user-select: none; 
+    user-select: none;
   }
 
   .table-cell__categories{
@@ -274,5 +274,11 @@ width: 100%;
   .icon_keyboard{
     width: 25px;
   }
-  
-
+.map-container {
+      width: 800px;
+      height: 600px;
+  }
+.graph-container {
+    width: 0px;
+    height: 0px;
+}

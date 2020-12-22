@@ -276,6 +276,7 @@ function selectTableCurrentCountry(cell, data) {
     });
   });
 }
+
 export {
   generateGlobalCasesContainer, generateCellCountry, generateCellTotalConfirmed, generateCellTotalDeaths, generateCellTotalRecovered,
   generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered, generateCellTotalConfirmedPer100thou,

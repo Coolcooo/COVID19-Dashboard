@@ -4,8 +4,8 @@ import createOption from './option';
 
 export default function mapWrapper() {
   const options = {
-    totalDeaths: 'Total deaths',
     totalConfirmed: 'Total confirmed',
+    totalDeaths: 'Total deaths',
     totalRecovered: 'Total recovered',
     newDeaths: 'New deaths',
     newConfirmed: 'New confirmed',
