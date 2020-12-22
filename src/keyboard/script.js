@@ -78,7 +78,7 @@ export default function initKeyboard() {
 
       const focusKey = document.querySelector('.input');
       let cursorPos = focusKey.selectionStart;
-      document.querySelector('.button_keyboard').addEventListener('click', () => {
+      document.querySelector('.input').addEventListener('click', () => {
         focusKey.focus();
       });
       keyLayoutEN.forEach((key) => {
