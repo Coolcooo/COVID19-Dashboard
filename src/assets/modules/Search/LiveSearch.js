@@ -44,7 +44,7 @@ const generateSearchInput = () => {
 };
 document.querySelector('.map-container').appendChild(generateSearchInput());
 // Live Search
-document.querySelector('.input').oninput = function () {
+document.querySelector('.input').addEventListener('input', () => {
   const inputValue = this.value.trim();
   const containerItems = document.querySelectorAll('.countries-cell');
   if (inputValue !== '') {
@@ -74,6 +74,6 @@ document.querySelector('.input').oninput = function () {
       elem.classList.remove('hide');
     });
   }
-};
+});
 
 export { generateSearchInput };
