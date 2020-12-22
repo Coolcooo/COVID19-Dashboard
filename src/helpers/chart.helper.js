@@ -21,7 +21,6 @@ export const myChart = new Chart(ctx, {
         ticks: {
           beginAtZero: true,
         },
-        // stacked: true,
       }],
     },
   },
@@ -40,12 +39,7 @@ export function chartData(type) {
     ],
     borderWidth: 1,
     fill: false,
-    // chartArea: {
-    //   backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    // },
   });
-  // console.log(chartConfig);
-  // console.log(dataStorage);
 }
 
 dataArray();
