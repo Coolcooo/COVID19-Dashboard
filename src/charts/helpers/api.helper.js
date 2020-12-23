@@ -1,22 +1,27 @@
 import {
-  dataStorage,
-} from './dataStorage.helper';
-import {
   chartData,
   myChart,
 } from './chart.helper';
+import dateArray from './dateChart.helper';
+// import '../../map/'
 
-export default async function api(method = 'world', dataToShow = ['TotalConfirmed'], countryName = 'Russia', countryPopulationMultiply = 1) {
+export default async function api(method = 'world', dataToShow = 'TotalConfirmed', isPer100k = false, countryName = 'Russia') {
+  const countryPopulationMultiply = 1;
   const defaultLink = 'https://api.covid19api.com/';
   let getDataLink;
   if (method === 'world') {
     getDataLink = defaultLink + method;
   } else if (method === 'total') {
     getDataLink = `${defaultLink + method}/country/${countryName}`;
+  } else if (method === 'summary') {
+    getDataLink = `${defaultLink + method}`;
   }
   const requestOptions = {
     method: 'GET',
     redirect: 'follow',
+    headers: {
+      'X-Access-Token': '5cf9dfd5-3449-485e-b5ae-70a60e997864',
+    },
   };
   if (method === 'world') {
     fetch(getDataLink, requestOptions)
@@ -30,45 +35,50 @@ export default async function api(method = 'world', dataToShow = ['TotalConfirme
         return characterData;
       })
       .then((characterData) => characterData.sort((a, b) => a.TotalConfirmed - b.TotalConfirmed))
-      .then((characterData) => {
-        characterData.forEach((character) => {
-          dataStorage.NewConfirmed.push(character.NewConfirmed);
-          dataStorage.TotalConfirmed.push(character.TotalConfirmed);
-          dataStorage.NewDeaths.push(character.NewDeaths);
-          dataStorage.TotalDeaths.push(character.TotalDeaths);
-          dataStorage.NewRecovered.push(character.NewRecovered);
-          dataStorage.TotalRecovered.push(character.TotalRecovered);
-          myChart.update();
+      .then((apiData) => {
+        const data = [];
+        apiData.forEach((element) => {
+          if (isPer100k) {
+            data.push(Math.round(element[dataToShow] / 100000));
+          } else {
+            data.push(element[dataToShow]);
+          }
         });
-        dataToShow.forEach((data) => {
-          chartData(data);
-          myChart.update();
-        });
+        data.sort((a, b) => a - b);
+        chartData(data, dataToShow, dateArray(apiData));
+        return data;
       });
   } else if (method === 'total') {
     fetch(getDataLink, requestOptions)
       .then((response) => response.json())
-      .then((data) => {
-        const characters = data;
-        const characterData = [];
-        characters.forEach((character) => {
-          characterData.push(character);
+      .then((apiData) => {
+        const data = [];
+        dataToShow.forEach((element) => {
+          apiData.forEach((element) => {
+            data.push(element[dataToShow] / countryPopulationMultiply);
+          });
         });
-
-        return characterData;
-      })
-      .then((characterData) => {
-        characterData.forEach((character) => {
-          dataStorage.Confirmed.push(character.Confirmed * countryPopulationMultiply);
-          dataStorage.Deaths.push(character.Deaths * countryPopulationMultiply);
-          dataStorage.Recovered.push(character.Recovered * countryPopulationMultiply);
-          dataStorage.Active.push(character.Active * countryPopulationMultiply);
-          myChart.update();
+        chartData(data, dataToShow, countryName);
+      });
+  } else if (method === 'summary') {
+    fetch(getDataLink, requestOptions)
+      .then((response) => response.json())
+      .then((response) => response.Countries.sort((a, b) => a[dataToShow] - b[dataToShow]))
+      .then((apiData) => {
+        const data = [];
+        const countries = [];
+        apiData.forEach((element) => {
+          if (isPer100k) {
+            data.push(Math.round(element[dataToShow] / element.Premium.CountryStats.Population * 100000));
+            countries.push(element.Country);
+          } else {
+            data.push(element[dataToShow]);
+            countries.push(element.Country);
+          }
         });
-        dataToShow.forEach((data) => {
-          chartData(data);
-          myChart.update();
-        });
+        data.sort((a, b) => a - b);
+        chartData(data, dataToShow, countries);
+        return data;
       });
   }
 }
