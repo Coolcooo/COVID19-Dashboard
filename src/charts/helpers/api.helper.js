@@ -5,8 +5,8 @@ import {
 import dateArray from './dateChart.helper';
 // import '../../map/'
 
-export default async function api(method = 'world', dataToShow = 'TotalConfirmed', isPer100k = 'false', countryName = 'Russia') {
-  let countryPopulationMultiply = 1;
+export default async function api(method = 'world', dataToShow = 'TotalConfirmed', isPer100k = false, countryName = 'Russia') {
+  const countryPopulationMultiply = 1;
   const defaultLink = 'https://api.covid19api.com/';
   let getDataLink;
   if (method === 'world') {
@@ -38,7 +38,7 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
       .then((apiData) => {
         const data = [];
         apiData.forEach((element) => {
-          if (isPer100k === 'true') {
+          if (isPer100k) {
             data.push(Math.round(element[dataToShow] / 100000));
           } else {
             data.push(element[dataToShow]);
@@ -53,7 +53,7 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
       .then((response) => response.json())
       .then((apiData) => {
         const data = [];
-        dataToShow.forEach(element => {
+        dataToShow.forEach((element) => {
           apiData.forEach((element) => {
             data.push(element[dataToShow] / countryPopulationMultiply);
           });
@@ -68,7 +68,7 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
         const data = [];
         const countries = [];
         apiData.forEach((element) => {
-          if (isPer100k === 'true') {
+          if (isPer100k) {
             data.push(Math.round(element[dataToShow] / element.Premium.CountryStats.Population * 100000));
             countries.push(element.Country);
           } else {

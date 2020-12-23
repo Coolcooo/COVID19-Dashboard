@@ -51,8 +51,8 @@ export function chartData(charPoints, labelsY, labelsX) {
   myChart.update();
 }
 
-export function setChart(method = 'total', dataToShow = 'Confirmed', countryName = 'Russia', countryPopulationMultiply = 1) {
-  api(method, dataToShow, countryName, countryPopulationMultiply);
+export function setChart(method = 'total', dataToShow = 'Confirmed', isPer100k = false, countryName = 'Russia') {
+  api(method, dataToShow, isPer100k, countryName);
   myChart.update();
 }
 
