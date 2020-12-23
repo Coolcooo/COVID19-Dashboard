@@ -84,7 +84,6 @@ document.querySelector('.exit-full-screen').addEventListener('click', () => {
 document.body.querySelector('.switch__button_right').addEventListener('click', () => {
   handlerFlagRight();
   generateCountiesList();
-  
 });
 document.body.querySelector('.switch__button_left').addEventListener('click', () => {
   handlerFlagLeft();
@@ -272,29 +271,29 @@ export function selectTableCurrentCountry(cell, data) {
         el.style = 'display: none';
       } else {
         el.style = 'display: block';
-        if(currentFlag === 1){
+        if (currentFlag === 1) {
           setChart('total', 'Confirmed', false, `${data.Country}`);
-        }else if(currentFlag === 2){
+        } else if (currentFlag === 2) {
           setChart('total', 'Recovered', false, `${data.Country}`);
-        }else if(currentFlag === 3){
+        } else if (currentFlag === 3) {
           setChart('total', 'Deaths', false, `${data.Country}`);
-        }else if(currentFlag === 4){
+        } else if (currentFlag === 4) {
           setChart('new', 'Confirmed', false, `${data.Country}`);
-        }else if(currentFlag === 5){
+        } else if (currentFlag === 5) {
           setChart('new', 'Recovered', false, `${data.Country}`);
-        }else if(currentFlag === 6){
+        } else if (currentFlag === 6) {
           setChart('new', 'Deaths', false, `${data.Country}`);
-        }else if(currentFlag === 7){
+        } else if (currentFlag === 7) {
           setChart('total', 'Confirmed', true, `${data.Country}`);
-        }else if(currentFlag === 8){
+        } else if (currentFlag === 8) {
           setChart('total', 'Recovered', true, `${data.Country}`);
-        }else if(currentFlag === 9){
+        } else if (currentFlag === 9) {
           setChart('total', 'Deaths', true, `${data.Country}`);
-        }else if(currentFlag === 10){
+        } else if (currentFlag === 10) {
           setChart('new', 'Confirmed', true, `${data.Country}`);
-        }else if(currentFlag === 11){
+        } else if (currentFlag === 11) {
           setChart('new', 'Recovered', true, `${data.Country}`);
-        }else if(currentFlag === 12){
+        } else if (currentFlag === 12) {
           setChart('new', 'Deaths', true, `${data.Country}`);
         }
       }
@@ -303,7 +302,7 @@ export function selectTableCurrentCountry(cell, data) {
 }
 
 export {
-  generateGlobalCasesContainer,generateGlobalCases, generateCountriesList, generateCellCountry, generateCellTotalConfirmed,
+  generateGlobalCasesContainer, generateGlobalCases, generateCountriesList, generateCellCountry, generateCellTotalConfirmed,
   generateCellTotalDeaths, generateCellTotalRecovered, generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered,
   generateCellTotalConfirmedPer100thou, fetchData, handlerFlagRight, handlerFlagLeft, currentPopulationValue, listCategories,
   currentFlag, dataSummary, dataFlags, dataFlag, generateCountiesList, currentCountry,
