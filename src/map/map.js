@@ -35,21 +35,18 @@ export default function generateMap(containerSelector) {
 
     changeData();
     settings.addEventListener('change', changeData);
-    setTimeout(() => {
-      const countries = document.querySelectorAll('.countries-cell');
-      countries.forEach(((cell) => {
-        let countryName = cell.textContent.split(' ');
-        countryName = countryName.slice(0, countryName.length - 1).join(' ').trim();
-        cell.addEventListener('click', () => {
-          const geojsonKeys = Object.keys(geojson._layers);
-          for (let i = 0; i < geojsonKeys.length; i += 1) {
-            if (countryName === geojson._layers[geojsonKeys[i]].feature.properties.name_sort) {
-              map.fitBounds(geojson._layers[geojsonKeys[i]].getBounds());
-            }
+    const geojsonKeys = Object.keys(geojson._layers);
+    const countriesList = document.querySelector('.countries-list__container');
+    countriesList.addEventListener('click', (e) => {
+      if (e.target.classList.contains('countries-cell')) {
+        const countryName = e.target.innerText.split('\n')[0];
+        for (let i = 0; i < geojsonKeys.length; i += 1) {
+          if (countryName === geojson._layers[geojsonKeys[i]].feature.properties.name_sort) {
+            map.fitBounds(geojson._layers[geojsonKeys[i]].getBounds());
           }
-        });
-      }));
-    }, 500);
+        }
+      }
+    });
   }
 
   document.addEventListener('DOMContentLoaded', () => {
