@@ -274,27 +274,28 @@ export function selectTableCurrentCountry(cell, data) {
         if (currentFlag === 1) {
           setChart('total', 'Confirmed', false, `${data.Country}`);
         } else if (currentFlag === 2) {
-          setChart('total', 'Recovered', false, `${data.Country}`);
-        } else if (currentFlag === 3) {
           setChart('total', 'Deaths', false, `${data.Country}`);
+        } else if (currentFlag === 3) {
+          setChart('total', 'Recovered', false, `${data.Country}`);
+          console.log('Recovered');
         } else if (currentFlag === 4) {
           setChart('new', 'Confirmed', false, `${data.Country}`);
         } else if (currentFlag === 5) {
-          setChart('new', 'Recovered', false, `${data.Country}`);
-        } else if (currentFlag === 6) {
           setChart('new', 'Deaths', false, `${data.Country}`);
+        } else if (currentFlag === 6) {
+          setChart('new', 'Recovered', false, `${data.Country}`);
         } else if (currentFlag === 7) {
           setChart('total', 'Confirmed', true, `${data.Country}`);
         } else if (currentFlag === 8) {
-          setChart('total', 'Recovered', true, `${data.Country}`);
-        } else if (currentFlag === 9) {
           setChart('total', 'Deaths', true, `${data.Country}`);
+        } else if (currentFlag === 9) {
+          setChart('total', 'Recovered', true, `${data.Country}`);
         } else if (currentFlag === 10) {
           setChart('new', 'Confirmed', true, `${data.Country}`);
         } else if (currentFlag === 11) {
-          setChart('new', 'Recovered', true, `${data.Country}`);
-        } else if (currentFlag === 12) {
           setChart('new', 'Deaths', true, `${data.Country}`);
+        } else if (currentFlag === 12) {
+          setChart('new', 'Recovered', true, `${data.Country}`);
         }
       }
     });
