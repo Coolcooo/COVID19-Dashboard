@@ -12,3 +12,4 @@ import initKeyboard from './keyboard/script';
 import appendFullScreenIco from './charts/chartFullScreen';
 initKeyboard()
 generateMap('.map-container');
+initKeyboard();
