@@ -58,7 +58,7 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
             data.push(element[dataToShow] / countryPopulationMultiply);
           });
         });
-        chartData(data, dataToShow, countryName);
+        chartData(data, dataToShow, dateArray(apiData));
       });
   } else if (method === 'summary') {
     fetch(getDataLink, requestOptions)

@@ -1,5 +1,6 @@
 import { generateCurrentList } from './GenerateListPages';
 import { populationData } from './data_population';
+import { setChart } from '../../../charts/helpers/chart.helper';
 
 // Global Cases container
 const generateGlobalCasesContainer = () => {
@@ -270,6 +271,7 @@ export function selectTableCurrentCountry(cell, data) {
         el.style = 'display: none';
       } else {
         el.style = 'display: block';
+        setChart('total', 'Confirmed', false, `${data.Country}`);
       }
     });
   });
