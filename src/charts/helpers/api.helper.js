@@ -11,7 +11,6 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
     getDataLink = defaultLink + method;
   } else if (method === 'total') {
     getDataLink = `${defaultLink + method}/country/${countryName}`;
-    console.log(getDataLink);
   } else if (method === 'summary') {
     getDataLink = `${defaultLink + method}`;
   } else if (method === 'new') {
