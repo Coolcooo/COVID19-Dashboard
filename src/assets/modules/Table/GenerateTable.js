@@ -98,12 +98,10 @@ function TableHandlerFlagLeft() {
 document.body.querySelector('.switch-table__button_right').addEventListener('click', () => {
   TableHandlerFlagRight();
   generateTable();
-  console.log(currentTableFlag);
 });
 document.body.querySelector('.switch-table__button_left').addEventListener('click', () => {
   TableHandlerFlagLeft();
   generateTable();
-  console.log(currentTableFlag);
 });
 
 let dataSummary;
