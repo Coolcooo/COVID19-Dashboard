@@ -2,7 +2,6 @@ import Chart from 'chart.js';
 import api from './api.helper';
 
 import {
-  dataStorage,
   chartConfig,
 } from './dataStorage.helper';
 
@@ -27,12 +26,6 @@ export const myChart = new Chart(ctx, {
   },
 });
 
-// export function clearChart(label, dataset = chartConfig) {
-//   console.log(chartConfig);
-//   myChart.data.datasets.splice(0, 1);
-//   myChart.update();
-// }
-
 export function chartData(charPoints, labelsY, labelsX) {
   const color = '255,255,255, 1';
   chartConfig[0] = {
@@ -56,4 +49,4 @@ export function setChart(method = 'total', dataToShow = 'Confirmed', isPer100k =
   myChart.update();
 }
 
-// setChart('world', 'TotalConfirmed');
+// setChart('new', 'Confirmed', true, 'Russia');

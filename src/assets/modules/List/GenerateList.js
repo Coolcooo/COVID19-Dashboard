@@ -279,7 +279,7 @@ export function selectTableCurrentCountry(cell, data) {
 }
 
 export {
-  generateGlobalCasesContainer,generateGlobalCases, generateCountriesList, generateCellCountry, generateCellTotalConfirmed,
+  generateGlobalCasesContainer, generateGlobalCases, generateCountriesList, generateCellCountry, generateCellTotalConfirmed,
   generateCellTotalDeaths, generateCellTotalRecovered, generateCellNewConfirmed, generateCellNewDeaths, generateCellNewRecovered,
   generateCellTotalConfirmedPer100thou, fetchData, handlerFlagRight, handlerFlagLeft, currentPopulationValue, listCategories,
   currentFlag, dataSummary, dataFlags, dataFlag, generateCountiesList, currentCountry,
