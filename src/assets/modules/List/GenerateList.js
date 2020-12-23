@@ -84,6 +84,7 @@ document.querySelector('.exit-full-screen').addEventListener('click', () => {
 document.body.querySelector('.switch__button_right').addEventListener('click', () => {
   handlerFlagRight();
   generateCountiesList();
+  
 });
 document.body.querySelector('.switch__button_left').addEventListener('click', () => {
   handlerFlagLeft();

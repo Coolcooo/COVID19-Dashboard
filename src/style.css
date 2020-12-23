@@ -475,6 +475,13 @@ z-index: 10;
     height: 45px;
   }
   }
+.last-update-date__value{
+  font-size: 20px;
+}
+  .last-update-date__subtitle{
+    font-size: 8px;
+    font-weight: normal;
+  }
 /* _________________footer________________________ */
 .footer {
   margin-top: 10px;
