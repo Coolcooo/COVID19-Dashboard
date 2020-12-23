@@ -1,5 +1,6 @@
 import { generateCurrentList } from './GenerateListPages';
 import { populationData } from './data_population';
+import { setChart } from '../../../charts/helpers/chart.helper';
 
 // Global Cases container
 const generateGlobalCasesContainer = () => {
@@ -83,6 +84,7 @@ document.querySelector('.exit-full-screen').addEventListener('click', () => {
 document.body.querySelector('.switch__button_right').addEventListener('click', () => {
   handlerFlagRight();
   generateCountiesList();
+  
 });
 document.body.querySelector('.switch__button_left').addEventListener('click', () => {
   handlerFlagLeft();
@@ -270,6 +272,9 @@ export function selectTableCurrentCountry(cell, data) {
         el.style = 'display: none';
       } else {
         el.style = 'display: block';
+        console.log(cell);
+        console.log(data);
+        setChart('total', 'Confirmed', false, `${data.Country}`);
       }
     });
   });
