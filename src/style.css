@@ -389,6 +389,7 @@ width: 100%;
     outline: none;
 }
 .button_keyboard{
+  display: none;
     width: 30px;
     height: 21px;
     padding: 0;
@@ -474,6 +475,13 @@ z-index: 10;
     width: 350px;
     height: 45px;
   }
+  }
+.last-update-date__value{
+  font-size: 20px;
+}
+  .last-update-date__subtitle{
+    font-size: 8px;
+    font-weight: normal;
   }
 /* _________________footer________________________ */
 .footer {

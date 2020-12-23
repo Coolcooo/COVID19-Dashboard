@@ -5,6 +5,7 @@ const generateLastUpdateDate = () => {
   lastUpdateDate.className = 'last-update-date__container';
   template += '<div class="last-update-date__title">Last Updated at (Y/M/D/YYYY)</div>';
   template += '<div class="last-update-date__value"></div>';
+  template += '<div class="last-update-date__subtitle">If data is not loading - please wait a few mins</div>';
   lastUpdateDate.innerHTML = template;
   return lastUpdateDate;
 };

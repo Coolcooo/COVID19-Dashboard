@@ -1,10 +1,9 @@
-
 import * as L from 'leaflet/dist/leaflet';
 import 'leaflet/dist/leaflet.css';
 import '../leafletFullscreen/Control.FullScreen.css';
 import '../leafletFullscreen/Control.FullScreen';
 import getColor from './stylesForCountries';
-import {selectTableCurrentCountry} from '../../assets/modules/List/GenerateList';
+import { selectTableCurrentCountry } from '../../assets/modules/List/GenerateList';
 
 export default async function getCOVID19Info() {
   return (await fetch('https://api.covid19api.com/summary', {
