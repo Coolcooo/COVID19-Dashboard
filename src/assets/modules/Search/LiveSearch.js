@@ -42,9 +42,10 @@ const generateSearchInput = () => {
   cell.innerHTML = template;
   return cell;
 };
+
 document.querySelector('.map-container').appendChild(generateSearchInput());
 // Live Search
-document.querySelector('.input').addEventListener('input', () => {
+document.querySelector('.input').oninput = function () {
   const inputValue = this.value.trim();
   const containerItems = document.querySelectorAll('.countries-cell');
   if (inputValue !== '') {
@@ -74,6 +75,6 @@ document.querySelector('.input').addEventListener('input', () => {
       elem.classList.remove('hide');
     });
   }
-});
+};
 
 export { generateSearchInput };
