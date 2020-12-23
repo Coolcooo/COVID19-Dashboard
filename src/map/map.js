@@ -38,16 +38,19 @@ export default function generateMap(containerSelector) {
     const geojsonLayers = geojson._layers;
     const geojsonKeys = Object.keys(geojsonLayers);
     const countriesList = document.querySelector('.countries-list__container');
-    countriesList.addEventListener('click', (e) => {
-      if (e.target.classList.contains('countries-cell')) {
-        const countryName = e.target.innerText.split('\n')[0];
+
+    function clickTable(e) {
+      const clickElem = e.target.closest('.countries-cell');
+      if (clickElem) {
+        const countryName = clickElem.innerText.split('\n')[0];
         for (let i = 0; i < geojsonKeys.length; i += 1) {
           if (countryName === geojsonLayers[geojsonKeys[i]].feature.properties.name_sort) {
             map.fitBounds(geojsonLayers[geojsonKeys[i]].getBounds());
           }
         }
       }
-    });
+    }
+    countriesList.addEventListener('click', clickTable);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
