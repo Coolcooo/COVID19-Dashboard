@@ -1,9 +1,7 @@
 import {
   chartData,
-  myChart,
 } from './chart.helper';
 import dateArray from './dateChart.helper';
-// import '../../map/'
 
 export default async function api(method = 'world', dataToShow = 'TotalConfirmed', isPer100k = false, countryName = 'Russia') {
   const countryPopulationMultiply = 1;
@@ -13,8 +11,11 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
     getDataLink = defaultLink + method;
   } else if (method === 'total') {
     getDataLink = `${defaultLink + method}/country/${countryName}`;
+    console.log(getDataLink);
   } else if (method === 'summary') {
     getDataLink = `${defaultLink + method}`;
+  } else if (method === 'new') {
+    getDataLink = `${defaultLink}total/country/${countryName}`;
   }
   const requestOptions = {
     method: 'GET',
@@ -57,6 +58,25 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
           apiData.forEach((element) => {
             data.push(element[dataToShow] / countryPopulationMultiply);
           });
+        });
+        chartData(data, dataToShow, dateArray(apiData));
+      });
+  } else if (method === 'new') {
+    fetch(getDataLink, requestOptions)
+      .then((response) => response.json())
+      .then((apiData) => {
+        // console.log(apiData);
+        const data = [];
+        const newData = [];
+        apiData.forEach((element, index) => {
+          if (isPer100k) {
+            data.push(Math.round(element[dataToShow] / 100000));
+          } else {
+            data.push(element[dataToShow] / countryPopulationMultiply);
+          }
+          if (apiData[index + 1]) {
+            newData.push(apiData[index + 1][dataToShow] - (apiData[index][dataToShow]));
+          }
         });
         chartData(data, dataToShow, dateArray(apiData));
       });
