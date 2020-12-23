@@ -53,12 +53,12 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
       .then((response) => response.json())
       .then((apiData) => {
         const data = [];
-        dataToShow.forEach((element) => {
+        [...dataToShow].forEach((element) => {
           apiData.forEach((element) => {
             data.push(element[dataToShow] / countryPopulationMultiply);
           });
         });
-        chartData(data, dataToShow, countryName);
+        chartData(data, dataToShow, dateArray(apiData));
       });
   } else if (method === 'summary') {
     fetch(getDataLink, requestOptions)
