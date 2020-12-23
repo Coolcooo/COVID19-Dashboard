@@ -4,6 +4,7 @@ import '../leafletFullscreen/Control.FullScreen.css';
 import '../leafletFullscreen/Control.FullScreen';
 import getColor from './stylesForCountries';
 import { selectTableCurrentCountry } from '../../assets/modules/List/GenerateList';
+import {setChart} from "../../charts/helpers/chart.helper";
 
 export default async function getCOVID19Info() {
   return (await fetch('https://api.covid19api.com/summary', {
@@ -94,13 +95,22 @@ export function createVectorLayer(map, json, style, info) {
 
   function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
+    const countryName = e.target.feature.properties.name_sort;
     document.querySelectorAll('.table-cell').forEach((el) => {
-      if (e.target.feature.properties.name_sort !== el.id) {
+      if (countryName !== el.id) {
         el.style.display = 'none';
       } else {
         el.style.display = 'block';
       }
     });
+
+    const settings = document.querySelector('#map__setting');
+    const isTotal = settings.value.includes('total');
+    const isPer100 = settings.value.includes('Per');
+    const totalOrNew = isTotal ? 'total' : 'new';
+    const option = settings.value.replace(totalOrNew, '').replace('Per100', '');
+    console.log(option);
+    setChart(totalOrNew, option, isPer100, countryName);
   }
 
   function onEachFeature(feature, layer) {
