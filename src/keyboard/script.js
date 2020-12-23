@@ -39,11 +39,10 @@ export default function initKeyboard() {
 
       // Automatically use keyboard for elements with .use-keyboard-input
       const input = document.querySelector('.input');
-      document.querySelectorAll('.button_keyboard').forEach((element) => {
-        element.addEventListener('click', () => {
-          this.open(input.value, (currentValue) => {
-            input.value = currentValue;
-          });
+
+      input.addEventListener('click', () => {
+        this.open(input.value, (currentValue) => {
+          input.value = currentValue;
         });
       });
     },
@@ -81,6 +80,7 @@ export default function initKeyboard() {
       document.querySelector('.input').addEventListener('click', () => {
         focusKey.focus();
       });
+
       keyLayoutEN.forEach((key) => {
         const keyElement = document.createElement('button');
         const insertLineBreak = ['backspace', '\\', 'enter', 'Shift'].indexOf(key) !== -1;
@@ -413,6 +413,8 @@ export default function initKeyboard() {
     _triggerEvent(handlerName) {
       if (typeof this.eventHandlers[handlerName] === 'function') {
         this.eventHandlers[handlerName](this.properties.value);
+        const input = document.querySelector('.input');
+        input.dispatchEvent(new Event('input'));
       }
     },
 
