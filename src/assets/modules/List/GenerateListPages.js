@@ -29,26 +29,31 @@ function generateCurrentList() {
     setChart('world', 'TotalRecovered');
   } else if (currentFlag === 4) {
     templeteRenderCells(dataSummary.Countries, 'NewConfirmed', generateCellNewConfirmed);
-    setChart('world', 'NewConfirmed');
+    setChart('summary', 'NewConfirmed');
   } else if (currentFlag === 5) {
     templeteRenderCells(dataSummary.Countries, 'NewDeaths', generateCellNewDeaths);
-    setChart('world', 'NewDeaths');
+    setChart('summary', 'NewDeaths');
   } else if (currentFlag === 6) {
     templeteRenderCells(dataSummary.Countries, 'NewRecovered', generateCellNewRecovered);
-    setChart('world', 'NewRecovered');
+    setChart('summary', 'NewRecovered');
   } else if (currentFlag === 7) {
     templeteRenderCells(dataSummary.Countries, 'TotalConfirmed', generateCellTotalConfirmedPer100thou);
-    setChart('Total', 'Confirmed');
+    setChart('world', 'TotalConfirmed', 'true');
   } else if (currentFlag === 8) {
     templeteRenderCells(dataSummary.Countries, 'TotalDeaths', generateCellTotalConfirmedPer100thou);
+    setChart('world', 'TotalDeaths', 'true');
   } else if (currentFlag === 9) {
     templeteRenderCells(dataSummary.Countries, 'TotalRecovered', generateCellTotalConfirmedPer100thou);
+    setChart('world', 'TotalRecovered', 'true');
   } else if (currentFlag === 10) {
     templeteRenderCells(dataSummary.Countries, 'NewConfirmed', generateCellTotalConfirmedPer100thou);
+    setChart('summary', 'NewConfirmed', 'true');
   } else if (currentFlag === 11) {
     templeteRenderCells(dataSummary.Countries, 'NewDeaths', generateCellTotalConfirmedPer100thou);
+    setChart('summary', 'NewDeaths', 'true');
   } else if (currentFlag === 12) {
     templeteRenderCells(dataSummary.Countries, 'NewRecovered', generateCellTotalConfirmedPer100thou);
+    setChart('summary', 'NewRecovered', 'true');
   }
   document.querySelector('.switch__title').innerHTML = listCategories[currentFlag];
 }

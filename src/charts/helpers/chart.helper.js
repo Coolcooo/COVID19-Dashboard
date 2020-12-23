@@ -11,8 +11,8 @@ export const myChart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: [].fill.call({
-      length: 260,
-    }, 1),
+      length: 300,
+    }, 0),
     datasets: chartConfig,
   },
   options: {
@@ -51,9 +51,9 @@ export function chartData(charPoints, labelsY, labelsX) {
   myChart.update();
 }
 
-export function setChart(method = 'total', dataToShow = ['Confirmed', 'Active'], countryName = 'Russia', countryPopulationMultiply = 1) {
+export function setChart(method = 'total', dataToShow = 'Confirmed', countryName = 'Russia', countryPopulationMultiply = 1) {
   api(method, dataToShow, countryName, countryPopulationMultiply);
   myChart.update();
 }
 
-setChart('world', 'TotalConfirmed', 'Russia');
+// setChart('world', 'TotalConfirmed');

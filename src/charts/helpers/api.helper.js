@@ -3,8 +3,10 @@ import {
   myChart,
 } from './chart.helper';
 import dateArray from './dateChart.helper';
+// import '../../map/'
 
-export default async function api(method = 'world', dataToShow = 'TotalConfirmed', countryName = 'Russia', countryPopulationMultiply = 1) {
+export default async function api(method = 'world', dataToShow = 'TotalConfirmed', isPer100k = 'false', countryName = 'Russia') {
+  let countryPopulationMultiply = 1;
   const defaultLink = 'https://api.covid19api.com/';
   let getDataLink;
   if (method === 'world') {
@@ -17,6 +19,9 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
   const requestOptions = {
     method: 'GET',
     redirect: 'follow',
+    headers: {
+      'X-Access-Token': '5cf9dfd5-3449-485e-b5ae-70a60e997864',
+    },
   };
   if (method === 'world') {
     fetch(getDataLink, requestOptions)
@@ -30,41 +35,50 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
         return characterData;
       })
       .then((characterData) => characterData.sort((a, b) => a.TotalConfirmed - b.TotalConfirmed))
-      .then((characterData) => {
+      .then((apiData) => {
         const data = [];
-        characterData.forEach((element) => {
-          data.push(element[dataToShow]);
+        apiData.forEach((element) => {
+          if (isPer100k === 'true') {
+            data.push(Math.round(element[dataToShow] / 100000));
+          } else {
+            data.push(element[dataToShow]);
+          }
         });
-        chartData(data, dataToShow, dateArray(characterData));
+        data.sort((a, b) => a - b);
+        chartData(data, dataToShow, dateArray(apiData));
+        return data;
       });
   } else if (method === 'total') {
     fetch(getDataLink, requestOptions)
       .then((response) => response.json())
-      .then((data) => {
-        const characters = data;
-        const characterData = [];
-        characters.forEach((character) => {
-          characterData.push(character);
-        });
-
-        return characterData;
-      })
-      .then((characterData) => {
+      .then((apiData) => {
         const data = [];
-        characterData.forEach((element) => {
-          data.push(element[dataToShow]);
+        dataToShow.forEach(element => {
+          apiData.forEach((element) => {
+            data.push(element[dataToShow] / countryPopulationMultiply);
+          });
         });
-        chartData(data, dataToShow, dateArray(characterData));
+        chartData(data, dataToShow, countryName);
       });
   } else if (method === 'summary') {
     fetch(getDataLink, requestOptions)
       .then((response) => response.json())
+      .then((response) => response.Countries.sort((a, b) => a[dataToShow] - b[dataToShow]))
       .then((apiData) => {
         const data = [];
+        const countries = [];
         apiData.forEach((element) => {
-          data.push(element[dataToShow]);
+          if (isPer100k === 'true') {
+            data.push(Math.round(element[dataToShow] / element.Premium.CountryStats.Population * 100000));
+            countries.push(element.Country);
+          } else {
+            data.push(element[dataToShow]);
+            countries.push(element.Country);
+          }
         });
-        chartData(data, dataToShow, dateArray(apiData));
+        data.sort((a, b) => a - b);
+        chartData(data, dataToShow, countries);
+        return data;
       });
   }
 }
