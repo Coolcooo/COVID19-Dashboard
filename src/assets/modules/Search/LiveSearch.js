@@ -80,5 +80,4 @@ function fin() {
 const input = document.querySelector('.input');
 input.addEventListener('input', fin);
 
-
 export { generateSearchInput };

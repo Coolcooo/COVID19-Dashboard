@@ -4,7 +4,7 @@ import '../leafletFullscreen/Control.FullScreen.css';
 import '../leafletFullscreen/Control.FullScreen';
 import getColor from './stylesForCountries';
 import { selectTableCurrentCountry } from '../../assets/modules/List/GenerateList';
-import {setChart} from "../../charts/helpers/chart.helper";
+import { setChart } from '../../charts/helpers/chart.helper';
 
 export default async function getCOVID19Info() {
   return (await fetch('https://api.covid19api.com/summary', {

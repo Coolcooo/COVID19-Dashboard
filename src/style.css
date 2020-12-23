@@ -389,6 +389,7 @@ width: 100%;
     outline: none;
 }
 .button_keyboard{
+  display: none;
     width: 30px;
     height: 21px;
     padding: 0;
