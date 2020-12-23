@@ -10,5 +10,5 @@ import './style.css';
 import generateMap from './map/map';
 import initKeyboard from './keyboard/script';
 import appendFullScreenIco from './charts/chartFullScreen';
-
+initKeyboard()
 generateMap('.map-container');

@@ -193,7 +193,7 @@ cursor: pointer;
 }
 
       .countries-list_fool-screen {
-          position: absolute;
+          position: fixed;
           z-index: 10;
           width: 100%;
           height: 100%;
@@ -299,7 +299,7 @@ cursor: pointer;
     }
   }
   .countries-table_full-screen{
-      position: absolute;
+      position: fixed;
       z-index: 10;
       align-items: center;
       width: 100%;
@@ -389,7 +389,6 @@ width: 100%;
     outline: none;
 }
 .button_keyboard{
-  display: none;
     width: 30px;
     height: 21px;
     padding: 0;
@@ -416,7 +415,7 @@ height: 172px;
 .chart-container_fool-screen{
 left: 0;
 top: 0;
-position: absolute;
+position: fixed;
 width: 100%;
 height: 100%;
 z-index: 10;
