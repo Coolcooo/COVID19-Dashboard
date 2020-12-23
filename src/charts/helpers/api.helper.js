@@ -11,7 +11,6 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
     getDataLink = defaultLink + method;
   } else if (method === 'total') {
     getDataLink = `${defaultLink + method}/country/${countryName}`;
-    console.log(getDataLink);
   } else if (method === 'summary') {
     getDataLink = `${defaultLink + method}`;
   } else if (method === 'new') {
@@ -78,7 +77,7 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
             newData.push(apiData[index + 1][dataToShow] - (apiData[index][dataToShow]));
           }
         });
-        chartData(data, dataToShow, dateArray(apiData));
+        chartData(newData, dataToShow, dateArray(apiData));
       });
   } else if (method === 'summary') {
     fetch(getDataLink, requestOptions)
