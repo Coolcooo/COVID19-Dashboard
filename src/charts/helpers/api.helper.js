@@ -78,7 +78,7 @@ export default async function api(method = 'world', dataToShow = 'TotalConfirmed
             newData.push(apiData[index + 1][dataToShow] - (apiData[index][dataToShow]));
           }
         });
-        chartData(data, dataToShow, dateArray(apiData));
+        chartData(newData, dataToShow, dateArray(apiData));
       });
   } else if (method === 'summary') {
     fetch(getDataLink, requestOptions)
