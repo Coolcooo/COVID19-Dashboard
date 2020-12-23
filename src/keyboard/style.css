@@ -10,12 +10,13 @@
 }
 
 .keyboard {
+    z-index: 10;
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     padding: 5px 0;
-    background: #004134;
+    background: #2D2F34;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     user-select: none;
     transition: bottom 0.4s;
@@ -61,6 +62,12 @@
 
 .keyboard__key--wide {
     width: 9%;
+}
+
+@media (max-width: 499px){
+    .keyboard__key--wide{
+        width: 6%;
+    }
 }
 
 .keyboard__key--extra-wide {
