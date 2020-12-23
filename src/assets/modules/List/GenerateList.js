@@ -272,8 +272,6 @@ export function selectTableCurrentCountry(cell, data) {
         el.style = 'display: none';
       } else {
         el.style = 'display: block';
-        console.log(cell);
-        console.log(data);
         setChart('total', 'Confirmed', false, `${data.Country}`);
       }
     });
