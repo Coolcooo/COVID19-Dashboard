@@ -35,14 +35,15 @@ export default function generateMap(containerSelector) {
 
     changeData();
     settings.addEventListener('change', changeData);
-    const geojsonKeys = Object.keys(geojson._layers);
+    const geojsonLayers = geojson._layers;
+    const geojsonKeys = Object.keys(geojsonLayers);
     const countriesList = document.querySelector('.countries-list__container');
     countriesList.addEventListener('click', (e) => {
       if (e.target.classList.contains('countries-cell')) {
         const countryName = e.target.innerText.split('\n')[0];
         for (let i = 0; i < geojsonKeys.length; i += 1) {
-          if (countryName === geojson._layers[geojsonKeys[i]].feature.properties.name_sort) {
-            map.fitBounds(geojson._layers[geojsonKeys[i]].getBounds());
+          if (countryName === geojsonLayers[geojsonKeys[i]].feature.properties.name_sort) {
+            map.fitBounds(geojsonLayers[geojsonKeys[i]].getBounds());
           }
         }
       }
