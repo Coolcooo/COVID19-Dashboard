@@ -3,15 +3,13 @@ import 'leaflet/dist/leaflet.css';
 import '../leafletFullscreen/Control.FullScreen.css';
 import '../leafletFullscreen/Control.FullScreen';
 import getColor from './stylesForCountries';
-import { selectTableCurrentCountry } from '../../assets/modules/List/GenerateList';
-import {setChart} from "../../charts/helpers/chart.helper";
+import { setChart } from '../../charts/helpers/chart.helper';
 
-export default async function getCOVID19Info() {
-  return (await fetch('https://api.covid19api.com/summary', {
-    headers: {
-      'X-Access-Token': '5cf9dfd5-3449-485e-b5ae-70a60e997864',
-    },
-  })).json();
+export default async function getCOVID19Info(yesterday = false) {
+  if (yesterday) {
+    return (await fetch('https://disease.sh/v3/covid-19/countries?yesterday=true')).json();
+  }
+  return (await fetch('https://disease.sh/v3/covid-19/countries?allowNull=true')).json();
 }
 
 export const isStableBrowser = !L.Browser.ie && !L.Browser.opera && !L.Browser.edge;
@@ -109,7 +107,6 @@ export function createVectorLayer(map, json, style, info) {
     const isPer100 = settings.value.includes('Per');
     const totalOrNew = isTotal ? 'total' : 'new';
     const option = settings.value.replace(totalOrNew, '').replace('Per100', '');
-    console.log(option);
     setChart(totalOrNew, option, isPer100, countryName);
   }
 
