@@ -2,30 +2,31 @@ import geo from '../../assets/json/countries.json';
 import getCOVID19Info from './getMap';
 
 export const covid = getCOVID19Info();
-
+const yesterdayCovid = getCOVID19Info(true);
 export default async function updateCOVID19InfoGeojson() {
   const data = await covid;
+  const yesterday = await yesterdayCovid;
   const json = geo;
   json.features.forEach((e) => {
     const geojsonProperty = e.properties;
-    data.Countries.forEach((covidStatistics) => {
-      const isCorrectCountry = geojsonProperty.wb_a2 === covidStatistics.CountryCode;
+    data.forEach((covidStatistics, ind) => {
+      const isCorrectCountry = geojsonProperty.iso_a2 === covidStatistics.countryInfo.iso2;
 
       if (isCorrectCountry) {
         const per = 100000;
-        const population = covidStatistics.Premium.CountryStats.Population;
-        geojsonProperty.newConfirmed = covidStatistics.NewConfirmed;
-        geojsonProperty.newDeaths = covidStatistics.NewDeaths;
-        geojsonProperty.newRecovered = covidStatistics.NewRecovered;
-        geojsonProperty.totalConfirmed = covidStatistics.TotalConfirmed;
-        geojsonProperty.totalDeaths = covidStatistics.TotalDeaths;
-        geojsonProperty.totalRecovered = covidStatistics.TotalRecovered;
-        geojsonProperty.newConfirmedPer100 = ((covidStatistics.NewConfirmed / population) * per).toFixed(2);
-        geojsonProperty.newDeathsPer100 = ((covidStatistics.NewDeaths / population) * per).toFixed(2);
-        geojsonProperty.newRecoveredPer100 = ((covidStatistics.NewRecovered / population) * per).toFixed(2);
-        geojsonProperty.totalConfirmedPer100 = ((covidStatistics.TotalConfirmed / population) * per).toFixed(2);
-        geojsonProperty.totalDeathsPer100 = ((covidStatistics.TotalDeaths / population) * per).toFixed(2);
-        geojsonProperty.totalRecoveredPer100 = ((covidStatistics.TotalRecovered / population) * per).toFixed(2);
+        const { population } = covidStatistics;
+        geojsonProperty.newConfirmed = covidStatistics.todayCases || yesterday[ind].todayCases;
+        geojsonProperty.newDeaths = covidStatistics.todayDeaths || yesterday[ind].todayDeaths;
+        geojsonProperty.newRecovered = covidStatistics.todayRecovered || yesterday[ind].todayRecovered;
+        geojsonProperty.totalConfirmed = covidStatistics.cases;
+        geojsonProperty.totalDeaths = covidStatistics.deaths;
+        geojsonProperty.totalRecovered = covidStatistics.recovered;
+        geojsonProperty.newConfirmedPer100 = (((covidStatistics.todayCases || yesterday[ind].todayCases) / population) * per).toFixed(2);
+        geojsonProperty.newDeathsPer100 = (((covidStatistics.todayDeaths || yesterday[ind].todayDeaths) / population) * per).toFixed(2);
+        geojsonProperty.newRecoveredPer100 = (((covidStatistics.todayRecovered || yesterday[ind].todayRecovered) / population) * per).toFixed(2);
+        geojsonProperty.totalConfirmedPer100 = ((covidStatistics.cases / population) * per).toFixed(2);
+        geojsonProperty.totalDeathsPer100 = ((covidStatistics.deaths / population) * per).toFixed(2);
+        geojsonProperty.totalRecoveredPer100 = ((covidStatistics.recovered / population) * per).toFixed(2);
 
         const maxParameters = json.max;
         if (geojsonProperty.newConfirmed > maxParameters.newConfirmedMax) {
