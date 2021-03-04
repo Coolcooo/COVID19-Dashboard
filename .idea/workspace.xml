@@ -19,11 +19,34 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc9815a2-1f84-4fba-89a5-370b3cdc8490" name="Default Changelist" comment="feat: add fullscreen for Map">
+    <list default="true" id="dc9815a2-1f84-4fba-89a5-370b3cdc8490" name="Default Changelist" comment="fix: title">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/modules/Search/LiveSearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/modules/Search/LiveSearch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/keyboard/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/keyboard/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/Github.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/Telegram.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/corona.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/email.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/full-screen.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/fullscreen.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/icon-fullscreen-2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/icon-fullscreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/keyboard_icon-icons.com_73520.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/layers-2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/layers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/logo-rsschool.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/marker-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/virus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/img/virus.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.b5dd1e6cb093fe11459c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.b5dd1e6cb093fe11459c.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/main.b5dd1e6cb093fe11459c.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/modules/List/GenerateList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/modules/List/GenerateList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/modules/List/GenerateListPages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/modules/List/GenerateListPages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/modules/Table/GenerateTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/modules/Table/GenerateTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/modules/Table/GenerateTablePages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/modules/Table/GenerateTablePages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/helpers/addInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/helpers/addInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/helpers/getMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/helpers/getMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/map.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,12 +88,12 @@
     <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Git\COVID19-Dashboard\src\assets\json" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Git\COVID19-Dashboard\src\map" />
       <recent name="D:\Git\COVID19-Dashboard\src\map\leaflet" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Git\COVID19-Dashboard\src\assets\json" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html">
@@ -144,6 +167,8 @@
       <workItem from="1608647137736" duration="190000" />
       <workItem from="1608647603028" duration="4744000" />
       <workItem from="1608659646550" duration="1800000" />
+      <workItem from="1613305280649" duration="32000" />
+      <workItem from="1614886608919" duration="6898000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add map">
       <created>1608245238199</created>
@@ -236,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608660120822</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix: title">
+      <created>1613223826175</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1613223826175</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +298,8 @@
     <MESSAGE value="feat: add bounds in table" />
     <MESSAGE value="feat: fix bugs with countryNames" />
     <MESSAGE value="feat: add fullscreen for Map" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add fullscreen for Map" />
+    <MESSAGE value="fix: title" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: title" />
   </component>
   <component name="WindowStateProjectService">
     <state x="698" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608246118667">
@@ -293,10 +326,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608484064414" />
-    <state x="802" y="139" key="RollbackChangesDialog" timestamp="1608245255754">
+    <state x="802" y="139" key="RollbackChangesDialog" timestamp="1613223831954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="802" y="139" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608245255754" />
+    <state x="802" y="139" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613223831954" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1608236989014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

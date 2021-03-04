@@ -65,13 +65,13 @@ document.querySelector('.table-exit-full-screen').addEventListener('click', () =
 const generateCellTotalCases = (data) => {
   let template = '';
   const cell = document.createElement('div');
-  cell.id = data.Country;
+  cell.id = data.countryInfo.iso3;
   cell.className = 'table-cell countries-table__total-cases';
-  template += `<div class="table-cell__country"><b>Country:</b> ${data.Country} </div>`;
+  template += `<div class="table-cell__country"><b>Country:</b> ${data.country} </div>`;
   template += '<div class="table-cell__categories">';
-  template += `<div class="table-cell__categories_confirmed"> Confirmed:</br> ${data.TotalConfirmed} </div>`;
-  template += `<div class="table-cell__categories_deaths"> Deaths:</br> ${data.TotalDeaths} </div>`;
-  template += `<div class="table-cell__categories_recovered"> Recovered:</br> ${data.TotalRecovered} </div>`;
+  template += `<div class="table-cell__categories_confirmed"> Confirmed:</br> ${data.cases} </div>`;
+  template += `<div class="table-cell__categories_deaths"> Deaths:</br> ${data.deaths} </div>`;
+  template += `<div class="table-cell__categories_recovered"> Recovered:</br> ${data.recovered} </div>`;
   template += '</div>';
   cell.innerHTML = template;
   return cell;
@@ -108,7 +108,7 @@ let dataSummary;
 let dataFlags;
 let dataFlag;
 async function generateTable() {
-  dataSummary = await fetchData('https://api.covid19api.com/summary');
+  dataSummary = await fetchData('https://disease.sh/v3/covid-19/countries');
   dataFlags = await fetchData('https://restcountries.eu/rest/v2/all?fields=name;population;flag');
   dataFlag = populationData;
   generateCurrentTable();

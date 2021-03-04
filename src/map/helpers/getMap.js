@@ -11,7 +11,7 @@ export default async function getCOVID19Info(yesterday = false) {
   if (yesterday) {
     return (await fetch('https://disease.sh/v3/covid-19/countries?yesterday=true')).json();
   }
-  return (await fetch('https://disease.sh/v3/covid-19/countries?allowNull=true')).json();
+  return (await fetch('https://disease.sh/v3/covid-19/countries')).json();
 }
 
 export const isStableBrowser = !L.Browser.ie && !L.Browser.opera && !L.Browser.edge;
@@ -95,7 +95,7 @@ export function createVectorLayer(map, json, style, info) {
 
   function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
-    const countryName = e.target.feature.properties.name_sort;
+    const countryName = e.target.feature.properties.iso_a3;
     document.querySelectorAll('.table-cell').forEach((el) => {
       if (countryName !== el.id) {
         el.style.display = 'none';

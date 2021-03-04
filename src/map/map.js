@@ -42,9 +42,9 @@ export default function generateMap(containerSelector) {
     function clickTable(e) {
       const clickElem = e.target.closest('.countries-cell');
       if (clickElem) {
-        const countryName = clickElem.innerText.split('\n')[0];
+        const countryName = clickElem.id;
         for (let i = 0; i < geojsonKeys.length; i += 1) {
-          if (countryName === geojsonLayers[geojsonKeys[i]].feature.properties.name_sort) {
+          if (countryName === geojsonLayers[geojsonKeys[i]].feature.properties.iso_a3) {
             map.fitBounds(geojsonLayers[geojsonKeys[i]].getBounds());
           }
         }

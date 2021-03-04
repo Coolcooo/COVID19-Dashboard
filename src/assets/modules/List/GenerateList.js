@@ -77,17 +77,13 @@ let dataFlags;
 let dataFlag;
 
 async function generateCountiesList() {
-  dataSummary = await fetchData('https://api.covid19api.com/summary');
+  dataSummary = await fetchData('https://disease.sh/v3/covid-19/countries');
   dataFlags = await fetchData('https://restcountries.eu/rest/v2/all?fields=name;population;flag');
   dataFlag = populationData;
   generateCurrentList();
 }
 generateCountiesList();
 
-// Link flag for cells
-function currentLinkImage(name) {
-  return populationData.filter((el) => el.name === name)[0].flag;
-}
 // Current population value
 function currentPopulationValue(name) {
   return populationData.filter((el) => el.name === name)[0].population;
@@ -98,9 +94,9 @@ const generateCellCountry = (data) => {
   let template = '';
   const cell = document.createElement('div');
   cell.className = 'countries-cell countries-list__country';
-  cell.id = 'ckickble';
+  cell.id = data.countryInfo.iso3;
 
-  template += `<img class="flag-image" id="ckickble" src="${data.flag}" alt="fgg">`;
+  template += `<img class="flag-image" id="${data.countryInfo.iso3}" src="${data.flag}" alt="fgg">`;
   template += `${data.name} </br>`;
   template += `<div>${data.population}</div>`;
   cell.innerHTML = template;
@@ -115,10 +111,10 @@ const generateCellTotalConfirmed = (data) => {
   selectTableCurrentCountry(cell, data);
 
   cell.className = 'countries-cell countries-list__total-confirmed';
-  cell.id = 'ckickble';
-  template += `<img class="flag-image" id="ckickble" src="${currentLinkImage(data.Country)}" alt="oups">`;
-  template += `${data.Country} </br>`;
-  template += `<div class="countries-cell__value_yellow">${data.TotalConfirmed}</div>`;
+  cell.id = data.countryInfo.iso3;
+  template += `<img class="flag-image" id="${data.countryInfo.iso3}" src="${data.countryInfo.flag}" alt="oups">`;
+  template += `${data.country} </br>`;
+  template += `<div class="countries-cell__value_yellow">${data.cases}</div>`;
   cell.innerHTML = template;
   return cell;
 };
@@ -128,11 +124,11 @@ const generateCellTotalDeaths = (data) => {
   const cell = document.createElement('div');
 
   cell.className = 'countries-cell countries-list__total-deaths';
-  cell.id = 'ckickble';
+  cell.id = data.countryInfo.iso3;
   selectTableCurrentCountry(cell, data);
-  template += `<img class="flag-image" id="ckickble" src="${currentLinkImage(data.Country)}" alt="fgg">`;
-  template += `${data.Country} </br>`;
-  template += `<div class="countries-cell__value_red">${data.TotalDeaths}</div>`;
+  template += `<img class="flag-image" id="${data.countryInfo.iso3}" src="${data.countryInfo.flag}" alt="fgg">`;
+  template += `${data.country} </br>`;
+  template += `<div class="countries-cell__value_red">${data.deaths}</div>`;
   cell.innerHTML = template;
   return cell;
 };
@@ -142,12 +138,12 @@ const generateCellTotalRecovered = (data) => {
   let template = '';
   const cell = document.createElement('div');
 
-  cell.id = 'ckickble';
+  cell.id = data.countryInfo.iso3;
   selectTableCurrentCountry(cell, data);
   cell.className = 'countries-cell countries-list__total-recovered';
-  template += `<img class="flag-image" id="ckickble" src="${currentLinkImage(data.Country)}" alt="fgg">`;
-  template += `${data.Country} </br>`;
-  template += `<div class="countries-cell__value_green">${data.TotalRecovered}</div>`;
+  template += `<img class="flag-image" id="${data.countryInfo.iso3}" src="${data.countryInfo.flag}" alt="fgg">`;
+  template += `${data.country} </br>`;
+  template += `<div class="countries-cell__value_green">${data.recovered}</div>`;
   cell.innerHTML = template;
   return cell;
 };
@@ -155,12 +151,12 @@ const generateCellTotalRecovered = (data) => {
 const generateCellNewConfirmed = (data) => {
   let template = '';
   const cell = document.createElement('div');
-  cell.id = 'ckickble';
+  cell.id = data.countryInfo.iso3;
   cell.className = 'countries-cell countries-list__new-confirmed';
   selectTableCurrentCountry(cell, data);
-  template += `<img class="flag-image" id="ckickble" src="${currentLinkImage(data.Country)}" alt="fgg">`;
-  template += `${data.Country} </br>`;
-  template += `<div class="countries-cell__value_yellow">${data.NewConfirmed}</div>`;
+  template += `<img class="flag-image" id="${data.countryInfo.iso3}" src="${data.countryInfo.flag}" alt="fgg">`;
+  template += `${data.country} </br>`;
+  template += `<div class="countries-cell__value_yellow">${data.todayCases}</div>`;
   cell.innerHTML = template;
   return cell;
 };
@@ -169,11 +165,11 @@ const generateCellNewDeaths = (data) => {
   let template = '';
   const cell = document.createElement('div');
   cell.className = 'countries-cell countries-list__new-deaths';
-  cell.id = 'ckickble';
+  cell.id = data.countryInfo.iso3;
   selectTableCurrentCountry(cell, data);
-  template += `<img class="flag-image" id="ckickble" src="${currentLinkImage(data.Country)}" alt="fgg">`;
-  template += `${data.Country} </br>`;
-  template += `<div class="countries-cell__value_red">${data.NewDeaths}</div>`;
+  template += `<img class="flag-image" id="${data.countryInfo.iso3}" src="${data.countryInfo.flag}" alt="fgg">`;
+  template += `${data.country} </br>`;
+  template += `<div class="countries-cell__value_red">${data.todayDeaths}</div>`;
   cell.innerHTML = template;
   return cell;
 };
@@ -182,11 +178,11 @@ const generateCellNewRecovered = (data) => {
   let template = '';
   const cell = document.createElement('div');
   cell.className = 'countries-cell countries-list__new-recovered';
-  cell.id = 'ckickble';
+  cell.id = data.countryInfo.iso3;
   selectTableCurrentCountry(cell, data);
-  template += `<img class="flag-image" id="ckickble" src="${currentLinkImage(data.Country)}" alt="fgg">`;
-  template += `${data.Country} </br>`;
-  template += `<div class="countries-cell__value_green">${data.NewRecovered}</div>`;
+  template += `<img class="flag-image" id="${data.countryInfo.iso3}" src="${data.countryInfo.flag}" alt="fgg">`;
+  template += `${data.country} </br>`;
+  template += `<div class="countries-cell__value_green">${data.todayRecovered}</div>`;
   cell.innerHTML = template;
   return cell;
 };
@@ -196,16 +192,16 @@ const generateCellTotalConfirmedPer100thou = (data, param) => {
   let template = '';
   const cell = document.createElement('div');
   cell.className = 'countries-cell countries-list__total-confirmed-per-100thou';
-  cell.id = 'ckickble';
+  cell.id = data.countryInfo.iso3;
   selectTableCurrentCountry(cell, data);
-  template += `<img class="flag-image" id="ckickble" src="${currentLinkImage(data.Country)}" alt="fgg">`;
-  template += `${data.Country} </br>`;
+  template += `<img class="flag-image" id="${data.countryInfo.iso3}" src="${data.countryInfo.flag}" alt="fgg">`;
+  template += `${data.country} </br>`;
   if (param === 'TotalConfirmed' || param === 'NewConfirmed') {
-    template += `<div class="countries-cell__value_yellow">${Math.floor((data[param] / currentPopulationValue(data.Country)) * 100000)}</div>`;
+    template += `<div class="countries-cell__value_yellow">${Math.floor((data[param] / data.population) * 100000)}</div>`;
   } else if (param === 'TotalDeaths' || param === 'NewDeaths') {
-    template += `<div class="countries-cell__value_red">${Math.floor((data[param] / currentPopulationValue(data.Country)) * 100000)}</div>`;
+    template += `<div class="countries-cell__value_red">${Math.floor((data[param] / data.population) * 100000)}</div>`;
   } else if (param === 'TotalRecovered' || param === 'NewRecovered') {
-    template += `<div class="countries-cell__value_green">${Math.floor((data[param] / currentPopulationValue(data.Country)) * 100000)}</div>`;
+    template += `<div class="countries-cell__value_green">${Math.floor((data[param] / data.population) * 100000)}</div>`;
   }
 
   cell.innerHTML = template;
@@ -234,44 +230,37 @@ function handlerFlagLeft() {
   }
 }
 
-// Clickble List
-document.querySelector('.countries-list__container').onclick = function (event) {
-  const { target } = event; // где был клик?
-  if (target.id !== 'ckickble' && target.className !== 'flag-image') return;
-};
-
 export function selectTableCurrentCountry(cell, data) {
   cell.addEventListener('click', () => {
     document.querySelectorAll('.table-cell').forEach((el) => {
-      if (el.id !== data.Country) {
+      if (el.id !== data.countryInfo.iso3) {
         el.style = 'display: none';
       } else {
         el.style = 'display: block';
         if (currentFlag === 1) {
-          setChart('total', 'Confirmed', false, `${data.Country}`);
+          setChart('total', 'Confirmed', false, `${data.country}`);
         } else if (currentFlag === 2) {
-          setChart('total', 'Deaths', false, `${data.Country}`);
+          setChart('total', 'Deaths', false, `${data.country}`);
         } else if (currentFlag === 3) {
-          setChart('total', 'Recovered', false, `${data.Country}`);
-          console.log('Recovered');
+          setChart('total', 'Recovered', false, `${data.country}`);
         } else if (currentFlag === 4) {
-          setChart('new', 'Confirmed', false, `${data.Country}`);
+          setChart('new', 'Confirmed', false, `${data.country}`);
         } else if (currentFlag === 5) {
-          setChart('new', 'Deaths', false, `${data.Country}`);
+          setChart('new', 'Deaths', false, `${data.country}`);
         } else if (currentFlag === 6) {
-          setChart('new', 'Recovered', false, `${data.Country}`);
+          setChart('new', 'Recovered', false, `${data.country}`);
         } else if (currentFlag === 7) {
-          setChart('total', 'Confirmed', true, `${data.Country}`);
+          setChart('total', 'Confirmed', true, `${data.country}`);
         } else if (currentFlag === 8) {
-          setChart('total', 'Deaths', true, `${data.Country}`);
+          setChart('total', 'Deaths', true, `${data.country}`);
         } else if (currentFlag === 9) {
-          setChart('total', 'Recovered', true, `${data.Country}`);
+          setChart('total', 'Recovered', true, `${data.country}`);
         } else if (currentFlag === 10) {
-          setChart('new', 'Confirmed', true, `${data.Country}`);
+          setChart('new', 'Confirmed', true, `${data.country}`);
         } else if (currentFlag === 11) {
-          setChart('new', 'Deaths', true, `${data.Country}`);
+          setChart('new', 'Deaths', true, `${data.country}`);
         } else if (currentFlag === 12) {
-          setChart('new', 'Recovered', true, `${data.Country}`);
+          setChart('new', 'Recovered', true, `${data.country}`);
         }
       }
     });

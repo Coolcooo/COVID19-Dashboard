@@ -7,6 +7,7 @@ export default async function updateCOVID19InfoGeojson() {
   const data = await covid;
   const yesterday = await yesterdayCovid;
   const json = geo;
+  console.log(json)
   json.features.forEach((e) => {
     const geojsonProperty = e.properties;
     data.forEach((covidStatistics, ind) => {
